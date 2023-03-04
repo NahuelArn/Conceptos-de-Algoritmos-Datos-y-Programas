@@ -17,7 +17,7 @@ Begin
       While (numLeft <> 0) Do
         Begin
           // numRight:= numLeft + operador + numRight;
-          // numRight := numRight + operador + numLeft;  
+          // numRight := numRight + operador + numLeft  
           //preguntar si hay alguna forma de implementarlo de esta forma en js se puede hacer
           // (creo que no habia, mala mia me acorde mal Revisarlo cuando lo hga con js)
           If (operador = '+') Then
