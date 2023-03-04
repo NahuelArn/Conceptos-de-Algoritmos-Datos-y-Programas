@@ -1,0 +1,1 @@
+numRight := 0;
