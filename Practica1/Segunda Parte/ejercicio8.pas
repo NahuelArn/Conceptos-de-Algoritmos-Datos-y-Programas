@@ -1,5 +1,4 @@
 
-
 (*
 Un local de ropa desea analizar las ventas realizadas en el último mes. Para ello se lee por cada día
 del mes, los montos de las ventas realizadas. La lectura de montos para cada día finaliza cuando se
@@ -14,30 +13,34 @@ Program ejercicio8;
 Var 
   diaMaxVentas,i : integer;
   ventas: integer;
-  monto,ventasTotal: real;
+  monto,ventasTotal,montoAcumulado: real;
   max1: integer;
 Begin
   max1 := -1;
   ventasTotal := 0;
-  For i:= 1 To 5 Do
+  montoAcumulado := 0;
+  For i:= 1 To 4 Do
     Begin
       Writeln('Ingrese el monto del dia: ');
       readln(monto);
-      ventasTotal := ventasTotal + ventas;
+      montoAcumulado := montoAcumulado + monto;
       ventas := 0;
       While (monto<>0) Do
         Begin
           ventas := ventas + 1;
           Writeln('Ingrese el monto del dia: ');
           readln(monto);
+          montoAcumulado := montoAcumulado + monto;
         End;
       If (ventas >= max1) Then
         Begin
           max1 := ventas;
           diaMaxVentas := i;
         End;
+      ventasTotal := ventasTotal + ventas;
       Writeln('El dia ',i,' se realizaron ',ventas,' ventas');
     End;
-  Writeln('El monto total acumulado todo el mes es: ',ventasTotal);
-  Writeln('El dia en el que se realizo la mayor cantidad de ventas fue el dia: ',diaMaxVentas);
+  Writeln('El monto $$$ total acumulado todo el mes es: ',montoAcumulado: 2: 2);
+  Writeln('La cantidad de ventas de todo el mes fueron: ',ventasTotal:0:2);
+  Writeln('El dia con mayor cantidad de ventas fue: ',diaMaxVentas);
 End.
