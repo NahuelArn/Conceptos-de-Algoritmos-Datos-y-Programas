@@ -1,13 +1,16 @@
 
 Program programA;
 
-Var 
-  a,b,c,d: integer;
+Procedure verificar(Var a,b :integer);
 Begin
-  a := 22;
-  b := 6;
-  c := a Div b;
-  d := a Mod c;
-  Writeln(c);
-  WriteLn(d);
+  a := a+b;
+  Writeln('AAA',a);
+End;
+
+Var 
+  a,b : integer;
+Begin
+  readln(a);
+  // b := 2;
+  verificar(a,2);
 End.
