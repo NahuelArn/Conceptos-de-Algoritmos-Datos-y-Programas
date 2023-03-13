@@ -1,4 +1,5 @@
 {A$B#}
+
 {
   Realizar un programa modularizado que lea una secuencia de caracteres y verifique si cumple con el patrón
 A$B#, donde:
@@ -8,7 +9,10 @@ A$B#, donde:
 Nota: en caso de no cumplir, informar que parte del patrón no se cumplió.
 }
 
-Program ejercicio12;
+
+{asi lo entendi primero pero esta mal, abajo lo tengo hecho bien}
+
+{Program ejercicio12;
 
 Procedure leerCaracteres(Var caracter: char);
 Begin
@@ -71,5 +75,86 @@ Begin
           Else
             Writeln('No cumple en #');
         End;
+    End;
+End.}
+
+Program ejercicio12;
+
+Function cumpleA(caracA: char): boolean;
+Begin
+  If (caracA = 'A') Or (caracA = 'E') Or (caracA = 'I') Or (caracA = 'O') Or (caracA = 'U') Or (caracA = 'a') Or (caracA = 'e') Or (
+     caracA = 'i') Or (caracA = 'o') Or (caracA = 'u') Then
+    cumpleA := true
+  Else
+    cumpleA := false;
+End;
+Procedure leerA(Var cumple: boolean);
+
+Var 
+  caracA: char;
+Begin
+  Writeln('Ingrese un caracter: ');
+  readln (caracA);
+  While (cumpleA(caracA) And (caracA <> '$')) Do
+    Begin
+      Writeln('Ingrese un caracter: ');
+      readln (caracA);
+    End;
+  If (caracA = '$') Then
+    Begin
+      Writeln('Cumple en $');
+      cumple := true;
+    End
+  Else
+    Begin
+      Writeln('No cumple en $');
+      cumple := false;
+    End;
+End;
+
+Function cumpleB (caracB: char): boolean;
+Begin
+  If (caracB >= 'A') And (caracB <= 'b') Or (caracB <> 'A') Or (caracB <> 'E') Or (caracB <> 'I') Or (caracB <> 'O') Or (
+     caracB <> 'U') Or (caracB <> 'a') Or (caracB <> 'e') Or (caracB <> 'i') Or (caracB <> 'o') Or (caracB <> 'u') Then
+    cumpleB := true
+  Else
+    cumpleB := false;
+End;
+
+Procedure leerB(Var cumple: boolean);
+
+Var 
+  caracB: char;
+Begin
+  Writeln('Ingrese un caracter: ');
+  readln (caracB);
+  While (cumpleB(caracB) And (caracB <> '#')) Do
+    Begin
+      Writeln('Ingrese un caracter: ');
+      readln (caracB);
+    End;
+  If (caracB = '#') Then
+    Begin
+      Writeln('Cumple en #');
+      cumple := true;
+    End
+  Else
+    Begin
+      Writeln('No cumple en #');
+      cumple := false;
+    End;
+End;
+
+Var 
+  cumple: boolean;
+Begin
+  leerA(cumple);
+  If cumple Then
+    Begin
+      leerB(cumple);
+      If (cumple) Then
+        Writeln ('cumple con el patron A$B#')
+      Else
+        Writeln ('No cumple con el patron A$B#');
     End;
 End.
