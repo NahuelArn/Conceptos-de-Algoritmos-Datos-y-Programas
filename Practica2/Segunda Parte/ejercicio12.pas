@@ -1,3 +1,4 @@
+{A$B#}
 {
   Realizar un programa modularizado que lea una secuencia de caracteres y verifique si cumple con el patrón
 A$B#, donde:
