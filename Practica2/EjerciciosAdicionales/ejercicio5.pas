@@ -12,7 +12,13 @@ anterior
 }
 
 //Practica 1 - Ejercicio 1
-
+{
+ - Modularizado: leer datos, mayor inversor
+  en este caso no se vio necesario el anidamiento de modulos
+ - se utilizo 2 procedimiento, ya que se tenia que retornar para utilizar dats en el programa principal
+}
 ////Practica 1 - Ejercicio 2
-
+  {
+    -
+  }
 //Practica 1 - Ejercicio 3
