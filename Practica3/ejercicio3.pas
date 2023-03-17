@@ -1,3 +1,5 @@
+
+
 {
 . El Ministerio de Educación desea realizar un relevamiento de las 2400 escuelas primarias de la provincia de Bs. As,
 con el objetivo de evaluar si se cumple la proporción de alumnos por docente calculada por la UNESCO para el año
@@ -102,7 +104,7 @@ Begin
       min1 := 9999;
       min2 := 9999;
       cantLpSup := 0;
-      For i:= 1 To 2400 Do
+      For i:= 1 To 2 Do
         Begin
           leerDatos(cole);
           If (verificadorIdem1(cole.cantDocentes, cole.cantAlumnos,cole.localidad)) Then
@@ -111,4 +113,6 @@ Begin
           relacionAlumDocent(relation(cole.cantAlumnos,cole.cantDocentes),{relacion}min1,min2,cole.cue,cue1,cue2,cole.nombre,name1,name2);
         End;
     End;
+  Writeln('La cantidad de escuelas de La Plata con una relacion de alumnos por docente superior a la sugerida por UNESCO es: ',cantLpSup);
+  Writeln('El CUE y nombre de las dos escuelas con mejor relacion entre docentes y alumnos es: ',cue1,' ',name1,' ',cue2,' ',name2);
 End.
