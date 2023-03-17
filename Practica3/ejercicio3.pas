@@ -1,5 +1,3 @@
-
-
 {
 . El Ministerio de Educación desea realizar un relevamiento de las 2400 escuelas primarias de la provincia de Bs. As,
 con el objetivo de evaluar si se cumple la proporción de alumnos por docente calculada por la UNESCO para el año
