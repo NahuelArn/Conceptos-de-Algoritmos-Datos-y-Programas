@@ -1,5 +1,8 @@
 
 
+
+
+
 {
 Realizar un programa que lea información de centros de investigación de Universidades Nacionales. De cada
 centro se lee su nombre abreviado (ej. LIDI, LIFIA, LINTI), la universidad a la que pertenece, la cantidad de
@@ -82,7 +85,8 @@ Begin
           leerDatos(datos);
         End;
       Writeln('La cantidad de centros para la universidad ',auxUniversidadActual,' es: ',cantCentros);
-      Writeln('La universidad con mayor cantidad de investigadores es: ',uniConMasInves);
-      Writeln('Los dos centros con menor cantidad de becarios son: ',centro1,' y ',centro2);
     End;
+  Writeln('La universidad con mayor cantidad de investigadores es: ',uniConMasInves);
+  Writeln('Los dos centros con menor cantidad de becarios son: ',centro1,' y ',centro2);
+
 End.
