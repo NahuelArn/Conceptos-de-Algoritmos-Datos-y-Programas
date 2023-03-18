@@ -1,5 +1,3 @@
-
-
 {
 Una empresa importadora de microprocesadores desea implementar un sistema de software para analizar la
 información de los productos que mantiene actualmente en stock. Para ello, se conoce la siguiente información de
