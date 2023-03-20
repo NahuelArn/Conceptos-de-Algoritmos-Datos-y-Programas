@@ -1,4 +1,6 @@
 
+
+
 {
 Una compañía de vuelos internacionales está analizando la información de todos los vuelos realizados por sus
 aviones durante todo el año 2019. De cada vuelo se conoce el código de avión, país de salida, país de llegada,
@@ -82,7 +84,7 @@ Procedure paisesDiferentes(Var contPaisesDif,maxDif: integer; auxCodAvion:intege
 Begin
   If (contPaisesDif >= maxDif)Then
     Begin
-      contPaisesDif := maxDif;
+      maxDif := contPaisesDif;
       codAvionMaxDiferentes := auxCodAvion
     End;
 End;
@@ -134,9 +136,91 @@ Begin
             End; {cuando sale de este While cambia el codigo de avion}
           paisesDiferentes(contPaisesDif,maxDif,auxCodAvion,codAvionMaxDiferentes);
         End;{cuando sale de este While termina el programa}
-      Writeln('Los 2 aviones que mas Km recorrieron son: ',avionMax1,' y ',avionMax2,'y los que menos Km recorrieron son: ',avionMin1,' y ',avionMin2);
-      Writeln('El avion que salio desde mas paises diferentes es: ',codAvionMaxDiferentes);
+      Writeln('Los codigos de los 2 aviones que mas Km recorrieron son: ',avionMax1,' y ',avionMax2,'y los que menos Km recorrieron son: ',avionMin1,' y ',
+              avionMin2);
+      Writeln('El codigo del avion que salio desde mas paises diferentes es: ',codAvionMaxDiferentes);
       Writeln('La cantidad de vuelos de mas de 5.000 km que no alcanzaron el 60% de ocupacion del avion es: ',cantVuelos5ky60);
       Writeln('La cantidad de vuelos de menos de 10.000 km que llegaron a Australia o a Nueva Zelanda es: ',cantMenos10kLlegadaAusNewZ);
     End;
 End.
+
+
+{
+  Debugging:
+  codigo de finalizacion 44
+cod = 2
+paiSalida = Argentina
+paisLlegada =  Venezuela
+cantkM = 1000
+porcentajeOcupacion = 50
+
+cod = 3 
+paiSalida = Argentina
+paisLlegada = Uruguay
+cantkM = 40
+porcentajeOcupacion = 80
+
+cod = 4
+paiSalida = Brazil
+paisLlegada = Uruguay
+cantkM = 800
+porcentajeOcupacion = 60
+
+cod = 5
+paiSalida = Mexico
+paisLlegada = Usa
+cantkM = 20
+porcentajeOcupacion = 90
+
+
+cod = 4
+paiSalida = Venezuela
+paisLlegada = Argentina
+cantkM = 500
+porcentajeOcupacion = 40
+
+cod = 4
+paiSalida = Mexico
+paisLlegada = Venezuela
+cantkM = 600
+porcentajeOcupacion = 20
+
+
+cod = 6
+paiSalida = Chile
+paisLlegada = Paris
+cantkM = 5001
+porcentajeOcupacion = 59
+
+cod = 7
+paiSalida = Peru
+paisLlegada = Australia
+cantkM = 5002
+porcentajeOcupacion = 58
+
+
+
+
+
+
+
+
+
+
+● Los dos aviones que más kilómetros recorrieron y los dos aviones que menos kilómetros recorrieron.
+Writeln('Los 2 aviones que mas Km recorrieron son: ',7,' y ',6,'y los que menos Km recorrieron son: ',3,' y ',5);
+
+● El avión que salió desde más países diferentes.
+Writeln('El avion que salio desde mas paises diferentes es: ', 4);
+
+
+● La cantidad de vuelos de más de 5.000 km que no alcanzaron el 60% de ocupación del avión.
+Writeln('La cantidad de vuelos de mas de 5.000 km que no alcanzaron el 60% de ocupacion del avion es: ',2);
+
+
+● La cantidad de vuelos de menos de 10.000 km que llegaron a Australia o a Nueva Zelanda.
+Writeln('La cantidad de vuelos de menos de 10.000 km que llegaron a Australia o a Nueva Zelanda es: ',1);
+
+
+
+}
