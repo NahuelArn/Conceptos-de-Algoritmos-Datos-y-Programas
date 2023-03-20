@@ -32,3 +32,56 @@ Nota: recuerde que, para poder rendir el EXAMEN PARCIAL, el alumno deberá obten
 menos el 75% del total de las autoevaluaciones propuestas. Se considera “Presente” la autoevaluación que se
 entrega en tiempo y forma y con al menos el 40% de respuestas correctas.
 *)
+program ejercicio12B;
+
+Const 
+  cantAutoevaluaciones = 5;
+
+type
+  notas5 =record
+    nota1:real;
+    nota2:real;
+    nota3:real;
+    nota4:real;
+    nota5:real;
+  end;
+
+  alumno = record
+    legajo: integer;
+    condicion: char;
+    notas: notas5;
+  end;
+
+
+procedure leerDatos(var datos:alumno);
+begin
+  writeln('Ingrese el legajo del alumno');
+  readln(datos.legajo);
+  if(datos.legajo <> -1) then
+  begin
+    writeln('Ingrese la condicion del alumno');
+    readln(datos.condicion);
+    writeln('Ingrese las notas del alumno');
+    readln(datos.notas.nota1);
+    readln(datos.notas.nota2);
+    readln(datos.notas.nota3);
+    readln(datos.notas.nota4);
+    readln(datos.notas.nota5);
+  end;
+end;
+
+procedure procesarDatos();
+begin
+  
+
+end;
+Var 
+  datos: alumno;
+Begin
+  leerDatos(datos);
+  While(datos.legajo <> -1) do
+  Begin
+    procesarDatos();
+    leerDatos(datos);
+  End;
+End.

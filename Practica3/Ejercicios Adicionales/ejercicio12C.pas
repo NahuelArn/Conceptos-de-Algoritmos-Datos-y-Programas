@@ -1,5 +1,4 @@
 
-
 (*
 Un fabricante de tanques de agua está analizando las ventas de sus tanques durante el 2020. La
 empresa fabrica tanques a medida, que pueden ser rectangulares (tanques ‘R’) o cilíndricos (tanques
@@ -17,3 +16,8 @@ lectura, el programa debe informar:
 Recordar: las fórmulas para el cálculo de volumen ( V ) del cilindro y del paralelepipedo rectangular son:
 cilindro: V = π*r2*h | paralelepipedo: V = a*b*h
 *)
+program ejercicio12C;
+var
+begin
+  
+end.
