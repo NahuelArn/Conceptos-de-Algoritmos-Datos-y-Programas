@@ -47,12 +47,6 @@ Begin
     End;
 End;
 
-{procedure porcentajeVotos(cand: candidato);
-var
-begin
-  
-end;}
-
 Var 
   cand: candidato;
   max1: integer;
@@ -67,7 +61,6 @@ Begin
     While (cand.apellido = auxCandidato) Do
       Begin
         mayorCantidadDeVotos(cand,max1, mayorVotos);
-        {porcentajeVotos(cand);}
         sumaVotos := sumaVotos + cand.cantVotos;
         leerDatos(cand);
 
