@@ -1,4 +1,7 @@
 
+
+
+
 {
 Se dispone de un vector con 100 números enteros. Implementar los siguientes módulos:
 a) posicion: dado un número X y el vector de números, retorna la posición del número X en dicho vector,
@@ -61,7 +64,7 @@ Procedure intercambiar(Var v: vNum; dimF: integer; x,y: integer);
 Var 
   auxIntercambio: integer;
 Begin
-  auxIntercambio := y;
+  auxIntercambio := v[y];
   v[y] := v[x];
   v[x] := auxIntercambio;
   imprimirVector(v, dimF);
