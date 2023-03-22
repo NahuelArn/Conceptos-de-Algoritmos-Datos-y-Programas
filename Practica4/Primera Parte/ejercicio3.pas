@@ -8,8 +8,9 @@ d) Realizar un módulo que reciba el vector, una posición X y otra posición Y,
 posición X hasta la Y. Asuma que tanto X como Y son menores o igual a la dimensión lógica. Y considere
 que, dependiendo de los valores de X e Y, podría ser necesario recorrer hacia adelante o hacia atrás.
 e) Utilizando el módulo implementado en el inciso anterior, vuelva a realizar los incisos a, b y c.
-Entiendo que se se pide Dimesion logica, porque se considera que el array se carga al 100%
-deberia cambiar el nombre de dimF a dimL
+
+(Entiendo que se se pide Dimesion logica, porque se considera que el array se carga al 100%
+deberia cambiar el nombre de dimF a dimL)
 }
 
 Program ejercicio3;
