@@ -1,10 +1,12 @@
-{Utilizando los módulos implementados en el ejercicio 4, realizar un programa que lea números enteros
-desde teclado (a lo sumo 100) y los almacene en un vector. La carga finaliza al leer el número 0. Al finalizar
-la carga, se debe intercambiar la posición del mayor elemento por la del menor elemento, e informe la
-operación realizada de la siguiente manera: “El elemento máximo ... que se encontraba en la posición ...
-fue intercambiado con el elemento mínimo ... que se encontraba en la posición ...”}
 
-Program ejercicio5;
+{ Dado que en la solución anterior se recorre dos veces el vector (una para calcular el elemento máximo y
+otra para el mínimo), implementar un único módulo que recorra una única vez el vector y devuelva ambas
+posiciones.
+En el modulo anterior ya habia usado un solo modulo para calcular el max y min en 1 solo recorrido
+Tener en cuenta que siempre se busca hacer los menos recorridos posibles en un vector, si podes sacar todos tus datos en un recorrido joya, si no trata de hacerlo en la menor cant posible
+}
+
+Program ejercicio6;
 
 Const 
   dimF = 100;

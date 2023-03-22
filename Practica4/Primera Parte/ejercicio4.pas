@@ -1,7 +1,3 @@
-
-
-
-
 {
 Se dispone de un vector con 100 números enteros. Implementar los siguientes módulos:
 a) posicion: dado un número X y el vector de números, retorna la posición del número X en dicho vector,
@@ -34,7 +30,7 @@ Begin
       v[i] := random(10);
     End;
 End;
-Procedure imprimirVector(Var v: vNum; dimL: integer);
+Procedure imprimirVector(v: vNum; dimL: integer);
 
 Var 
   i: integer;
@@ -69,7 +65,6 @@ Begin
   v[x] := auxIntercambio;
   imprimirVector(v, dimF);
 End;
-
 
 {c) sumaVector: retorna la suma de todos los elementos del vector.
 d) promedio: devuelve el valor promedio de los elementos del vector.
