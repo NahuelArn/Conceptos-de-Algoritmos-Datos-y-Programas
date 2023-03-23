@@ -1,13 +1,8 @@
 
+{Modificar la solución del punto anterior considerando que el programa lea y almacene la información de a
+lo sumo 400 alumnos. La lectura finaliza cuando se ingresa el DNI -1 (que no debe procesarse).}
 
-{Realizar un programa que lea y almacene la información de 400 alumnos ingresantes a la Facultad de
-Informática de la UNLP en el año 2020. De cada alumno se lee: nro de inscripción, DNI, apellido, nombre y
-año de nacimiento. Una vez leída y almacenada toda la información, calcular e informar:
-a) El porcentaje de alumnos con DNI compuesto sólo por dígitos pares.
-b) Apellido y nombre de los dos alumnos de mayor edad.
-}
-
-Program ejercicio8;
+Program ejercicio9;
 
 Const 
   cantIngresantes = 4;
@@ -28,12 +23,15 @@ Procedure leerDatos(Var r: alumno);
 Begin
   Writeln('Ingrese el dni del alumno: ');
   readln(r.dni);
-  Writeln('Ingrese el apellido: ');
-  readln(r.apellido);
-  Writeln('Ingrese el nombre: ');
-  readln(r.nombre);
-  Writeln('Ingrese el anho de nacimiento: ');
-  readln(r.anhoNacimiento);
+  If (r.dni <> -1)Then
+    Begin
+      Writeln('Ingrese el apellido: ');
+      readln(r.apellido);
+      Writeln('Ingrese el nombre: ');
+      readln(r.nombre);
+      Writeln('Ingrese el anho de nacimiento: ');
+      readln(r.anhoNacimiento);
+    End;
 End;
 //carga el vector de registros con lo de leerDatos
 Procedure cargarDatos(Var v: vAlumnos);
@@ -42,10 +40,13 @@ Var
   r: alumno;
   i: integer;
 Begin
-  For i:= 1 To cantIngresantes Do
+  i := 0;
+  leerDatos(r);
+  While (r.dni <> -1) And (i <= cantIngresantes) Do
     Begin
-      leerDatos(r);
+      i := i+1;
       v[i] := r;
+      leerDatos(r);
     End;
 End;
 {a) El porcentaje de alumnos con DNI compuesto sólo por dígitos pares.
