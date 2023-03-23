@@ -38,14 +38,14 @@ Procedure cargarDatos(Var v: vAlumnos);
 
 Var 
   r: alumno;
-  i: integer;
+  dimL: integer;
 Begin
-  i := 0;
+  dimL := 0;
   leerDatos(r);
-  While (r.dni <> -1) And (i <= cantIngresantes) Do
+  While (r.dni <> -1) And (dimL <= cantIngresantes) Do
     Begin
       i := i+1;
-      v[i] := r;
+      v[dimL] := r;
       leerDatos(r);
     End;
 End;
