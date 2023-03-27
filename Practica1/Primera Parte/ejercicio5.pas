@@ -13,7 +13,7 @@ Begin
   readln(num);
   doble := num * 2;
   i := 0;
-  While (i <> 4) And (num <> doble) Do
+  While (i <> 10) And (num <> doble) Do
     Begin
       Writeln('Ingrese un numero');
       readln(num);

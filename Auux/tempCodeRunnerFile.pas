@@ -1,4 +1,9 @@
 
+
+
+
+
+
 {
 
 Modifique el ejercicio anterior para que, luego de leer el número X, se lean a lo sumo 10 números

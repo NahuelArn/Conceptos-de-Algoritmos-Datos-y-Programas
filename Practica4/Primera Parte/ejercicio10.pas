@@ -1,3 +1,4 @@
+
 { Realizar un programa que lea y almacene el salario de los empleados de una empresa de turismo (a lo
 sumo 300 empleados). La carga finaliza cuando se lea el salario 0 (que no debe procesarse) o cuando se
 completa el vector. Una vez finalizada la carga de datos se pide:
