@@ -1,4 +1,7 @@
 
+
+
+
 (*
 Modifique el programa anterior para que el mensaje de salida muestre la suma de ambos
 números:

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 (*
 Realice un programa que informe el valor total en pesos de una transacción en dólares.
 Para ello, el programa debe leer el monto total en dólares de la transacción, el valor del

@@ -1,5 +1,4 @@
 {A$B#}
-
 {
   Realizar un programa modularizado que lea una secuencia de caracteres y verifique si cumple con el patrón
 A$B#, donde:
@@ -11,6 +10,9 @@ Nota: en caso de no cumplir, informar que parte del patrón no se cumplió.
 
 
 {asi lo entendi primero pero esta mal, abajo lo tengo hecho bien}
+
+
+
 
 {Program ejercicio12;
 
