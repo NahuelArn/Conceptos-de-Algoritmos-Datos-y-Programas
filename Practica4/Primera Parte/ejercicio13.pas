@@ -1,3 +1,5 @@
+REVISARRR DUDA ENUNCIADO NOTION
+
 {
 El Grupo Intergubernamental de Expertos sobre el Cambio Climático de la ONU (IPCC) realiza todos los
 años mediciones de temperatura en 100 puntos diferentes del planeta y, para cada uno de estos lugares,
