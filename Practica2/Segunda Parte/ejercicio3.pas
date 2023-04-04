@@ -39,5 +39,5 @@ Begin
   ok := (result >= 10) Or (result <= 30);
   If (Not ok) Then
     write ('La suma no quedó entre 10 y 30');
-
+  //falta el else 
 End.
