@@ -15,9 +15,9 @@ Begin
   i := 0;
   While (i <> 10) And (num <> doble) Do
     Begin
+      i := i +1;
       Writeln('Ingrese un numero');
       readln(num);
-      i := i +1;
     End;
   If (num = doble) Then
     Writeln('El doble del numero ingresado es: ', doble:0:2)
