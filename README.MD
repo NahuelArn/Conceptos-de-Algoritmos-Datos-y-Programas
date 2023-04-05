@@ -4,7 +4,8 @@
 
 <p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
 
-<div>  
+<div> 
+  
 ``` 
 //2 minimos vinculado a 2 nombres
   if (numero <= min1) then
@@ -19,7 +20,8 @@
       min2:= numero;
       nombre1:= nombreActual;
     end;
-``` 
+```
+  
 </div>
 
  <p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
