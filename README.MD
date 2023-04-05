@@ -1,10 +1,12 @@
-# CADP
-#Algoritmos que se repiten
+<h1 align="center"> CADP </h1>
 
-#sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados
+<p align="center">Algoritmos que se repiten</p>
 
-```
-  //2 minimos vinculado a 2 nombres
+<p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
+
+<div>  
+``` 
+//2 minimos vinculado a 2 nombres
   if (numero <= min1) then
     begin
       min2 := min1;
@@ -17,11 +19,13 @@
       min2:= numero;
       nombre1:= nombreActual;
     end;
-```
+``` 
+</div>
 
-#sacando 2 Minimos y 2 Maximos, con un nombre vinculado
-  ```
-     //2 maximos vinculado a 2 nombres
+ <p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
+
+```
+//2 maximos vinculado a 2 nombres
   if (numero >= max1) then
     begin
       max2:= max1;
@@ -34,4 +38,4 @@
       max2:= numero;
       nombre2:= nombreActual;
     end; 
-  ```
+```
