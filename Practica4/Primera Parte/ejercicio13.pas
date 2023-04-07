@@ -113,6 +113,106 @@ End.
 
 
 
+//--------------------------------------programEze------------------------------------------------------------------
+
+{13. El Grupo Intergubernamental de Expertos sobre el Cambio Climático de la ONU (IPCC) realiza todos los
+años mediciones de temperatura en 100 puntos diferentes del planeta y, para cada uno de estos lugares,
+obtiene un promedio anual. Este relevamiento se viene realizando desde hace 50 años, y con todos los
+datos recolectados, el IPCC se encuentra en condiciones de realizar análisis estadísticos. Realizar un
+programa que lea y almacene los datos correspondientes a las mediciones de los últimos 50 años (la
+información se ingresa ordenada por año). Una vez finalizada la carga de la información, obtener:
+
+a) el año con mayor temperatura promedio a nivel mundial.
+b) el año con la mayor temperatura detectada en algún punto del planeta en los últimos 50 años.}
+
+Program eje13;
+
+Type 
+  REG_temp = Record
+    tempAlta: real;
+    tempProm: real;
+  End;
+
+  vector = array [1..50] Of REG_temp;
+
+Procedure imprimir (anioTemp,anioProm: integer);
+Begin
+  writeln ('El anio con temperatura mas alta es: ',anioTemp);
+  writeln ('El anio con temperatura promedio mas alta es: ',anioProm);
+End;
+
+Procedure procesar (v: vector);
+
+Var 
+  x, anioTemp, anioProm: integer;
+  tempAlta, tempProm: real;
+Begin
+  tempAlta := 0;
+  tempProm := 0;
+
+  For x:= 1 To 50 Do
+    Begin
+        {aca sacas el anho de la temperatura mas alta en los anhos}
+      If (tempAlta < v[x].tempAlta) Then
+        Begin
+          tempAlta := v[x].tempAlta;
+          anioTemp := x
+        End;
+        {aca sacar el anho de temperatura mas alta en algun punto del planeta}
+      If (tempProm < v[x].tempProm) Then
+        Begin
+          tempProm := v[x].tempProm;
+          anioProm := x;
+        End;
+    End;
+  imprimir(anioTemp,anioProm);
+End;
+
+Procedure cargarReg (Var r: REG_temp);
+
+Var 
+  x: integer;
+  lugar: string[30];
+  temp: real;
+Begin
+  r.tempProm := 0;
+  r.tempAlta := 0;
+
+  For x:=1 To 100 Do
+    Begin
+      write ('Lugar: ');
+      readln(lugar);
+      // No es necesario pero para darle sentido al programa
+      write ('Temperatura: ');
+      readln(temp);
+
+      If (r.tempAlta < temp) Then  {sacas la temperatura max en los puntos y lo guardas en el registro}
+        r.tempAlta := temp;
+
+      r.tempProm := r.tempProm + temp; {esta bien sacas el promedioTotal de los 100 puntos}
+    End;
+  r.tempProm := r.tempProm / 100;  {sacas el promedio de las 100 temperaturas de los puntos y lo guardas en el registro}
+End;
+
+Procedure cargarV(Var v: vector);
+
+Var 
+  x: integer;
+  r: REG_temp;
+Begin
+  For x:=1 To 50 Do
+    Begin
+      cargarReg(r);
+      v[x] := r;  {en este punto tendrias un vector de registros que cada [i] tiene el promedioTolta de los 100 puntos }
+    End;
+End;
+
+Var 
+  v: vector;
+Begin
+  cargarV(v);
+  {llamas a procesar(v);}
+End.
 
 
 
