@@ -1,4 +1,4 @@
-
+//no esta resuelto se necesita implementar un vector de vectores, aca se resolvio todo en la carga
 {
   Si se lee y resuelve todo durante la carga, no es necesario ningun vector la verdad
   Ahora si se quiere resolver con vectores, solo podes resolver la parte del anho tatal temperaturas promedio, lo de los 100 puntos no podrias ya que,
@@ -121,6 +121,8 @@ End.
 
 //--------------------------------------desde el programa principal------------------------------------------------------------------
 
+
+
 {
 El Grupo Intergubernamental de Expertos sobre el Cambio Climático de la ONU (IPCC) realiza todos los
 años mediciones de temperatura en 100 puntos diferentes del planeta y, para cada uno de estos lugares,
@@ -216,6 +218,8 @@ Begin
   Writeln('El anho con mayor temperatura promedio a nivel mundial es: ',anhoMaxPromedioTotal);
   Writeln('El anho con la mayor temperatura detectada en algun punto del planeta en los ultimos 50 anhos es: ',anhoMaxPuntosTemPromedio);
 End.
+
+
 
 
 
