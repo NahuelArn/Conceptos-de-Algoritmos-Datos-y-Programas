@@ -129,7 +129,7 @@ Begin
   ini := 1;
   fin := dimL;
   //mientras no se encuntre y ini no sea mas grande que la dimL
-  While ((encontrado <> true) And (ini <= fin)) Do
+  While ((ini <= fin) And (encontrado <> true)) Do
     Begin
       //ponele q diml= 5 vos haces 5+1/2 = 3 siempre te quedas con la mitad
       mitad := (ini+fin) Div 2;
