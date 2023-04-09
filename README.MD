@@ -73,3 +73,54 @@
       digParesImpares(dato,par,impar);
    end.
 ```
+
+
+
+<h1 align="center"> Busqueda binaria/dicotomica de un array ordenado  </h1>
+
+``` 
+
+{para que esto funcione necesitamos tomar el i=1=inicio del vector y la dimL=fin
+y la mitad, para sacar la mitad sumamos el i del inicio y la dimL, mitad:= ini+fin div 2; 
+mitad=  va ser el i de la mitad del array, se pregunta si el elemento mitad[i]=alnumBuscado;
+si es termina; si no, preguntamos si el numero a buscar > o < al valor [i] de la mitad,
+
+//para quedarme con el lado izquierdo del array
+if num < V[I] agarramos el lado izquierdo del array, ini ya tiene ya esta en la pos 1 del vector no lo tocamos,
+fin esta en la dimL, entonces a fin lo queremos ubicar justo en la mitad -1, porq -1? por q ya preguntamos anteriormente si v[mitad]=num;
+fin:= mitad -1; ahora tenemos al array cortado, ini es igual a la pos = 1 del array, fin = la mitad-1 del array original,
+
+//para quedarse con el lado derecho del array
+if num > V[I] agarramos el lado derecho del array, ini ya esta en la pos 1 del vector, lo necesitamos que este en la pos mitad+1,
+fin esta en la dimL, entonces a ini lo queremos ubicar justo en la mitad +1, porq +1? por q ya preguntamos anteriormente si v[mitad]=num;
+ini:= mitad +1; ahora tenemos al array cortado, ini es igual a la pos = mitad+1 del array, fin = dimL del array original,
+}
+//funcion q busca en un array ordenado de 1..x un numero hasta la dimL, con buscaqueda dicotomica, se recibe el v, el num a buscar y la dimL,
+ retorna un booleano si estaba o no el numero en el array
+
+
+Function buscarNumero(numAbuscar: integer; v1: vPrimero; dimL: integer): Boolean;
+Var 
+  ini,mitad,fin: integer;
+  encontrado: Boolean;
+Begin
+  encontrado := false;
+  ini := 1;
+  fin := dimL;
+  //mientras no se encuntre y ini no sea mas grande que la dimL
+  While ((encontrado <> true) And (ini <= fin)) Do
+    Begin
+      //ponele q diml= 5 vos haces 5+1/2 = 3 siempre te quedas con la mitad
+      mitad := (ini+fin) Div 2;
+      If (v1[mitad] =numAbuscar) Then
+        encontrado := true
+      //para quedarme con el lado izquierdo del array
+      Else If (numAbuscar < v1[mitad])Then
+             fin := mitad-1
+      //para quedarse con el lado derecho del array
+      Else If (numAbuscar> v1[mitad])Then
+             ini := mitad+1;
+    End;
+  buscarNumero := encontrado;
+End;
+```
