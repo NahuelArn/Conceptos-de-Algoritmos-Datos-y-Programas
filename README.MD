@@ -74,6 +74,27 @@
    end.
 ```
 
+<h1 align="center"> Agregar en vector al final  </h1>
+
+``` 
+//Agregar al final del vector, si hay dimL disponible
+
+Procedure agregarEnVector(Var v: vector; Var ok: boolean; Var dimLogica: integer; num: integer);
+
+Begin
+  //chequeo si hay espacio
+  ok := ((dimLogica+1)<= dimF);
+  If (ok)Then
+    Begin
+      //aumento la dimL y agrego el num
+      dimLogica := dimLogica+1;
+      v[dimLogica] := num;
+    End;
+end;
+```
+
+
+
 
 
 <h1 align="center"> Busqueda binaria/dicotomica de un array ordenado  </h1>
