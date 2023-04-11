@@ -10,6 +10,9 @@ meses de verano (enero, febrero y marzo) y la cantidad de casamientos realizados
 cada mes. Nota: utilizar el módulo realizado en b) para la lectura de fecha.
 }
 
+
+{"la cantidad de casamientos realizados en los primeros 10 días de
+cada mes", AcA Esta parte la pase por alto pero es implementar un case con 12 variables contadoras y despues informar}
 Program ejercicio2;
 
 Type 
