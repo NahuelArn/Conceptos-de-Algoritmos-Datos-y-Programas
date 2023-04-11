@@ -7,7 +7,7 @@
 <p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
 
   
-``` 
+```pas 
 //2 minimos vinculado a 2 nombres
 
   if (numero <= min1) then
@@ -27,7 +27,7 @@
 
  <p align="center"> sacando 2 Minimos y 2 Maximos, con 2 nombres vinculados </p>
 
-```
+```pas
 //2 maximos vinculado a 2 nombres
 
   if (numero >= max1) then
@@ -46,7 +46,7 @@
 
 <h1 align="center"> Descomposición de un numero Par/Impar  </h1>
 
-``` 
+```pas 
 //Se ingresa un numero y se descomponen sus digitos y llevamos un contador de pares/impar
 
   program prueba;
@@ -76,7 +76,7 @@
 
 <h1 align="center"> Agregar en vector al final  </h1>
 
-``` 
+```pas 
 //Agregar al final del vector, si hay dimL disponible
 
 Procedure agregarEnVector(Var v: vector; Var ok: boolean; Var dimLogica: integer; num: integer);
@@ -99,7 +99,7 @@ end;
 
 <h1 align="center"> Busqueda binaria/dicotomica de un array ordenado  </h1>
 
-``` 
+```pas 
 
 {para que esto funcione necesitamos tomar el i=1=inicio del vector y la dimL=fin
 y la mitad, para sacar la mitad sumamos el i del inicio y la dimL, mitad:= ini+fin div 2; 
