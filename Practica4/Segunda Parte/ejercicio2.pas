@@ -14,7 +14,7 @@ Const
 
 Type 
   str20 = string[20];
-
+//por q un registro para un solo nombre? mas escAbiLidaD?
   alumnos = Record
     nombreAlum: str20;
   End;
