@@ -13,7 +13,8 @@ b. Realizar un módulo que reciba el vector generado en a) e informe:
 c. Realizar un módulo que reciba el vector generado en a) y elimine todos los viajes cuya distancia
 recorrida sea igual a 100 km.
 Nota: para realizar el inciso b, el vector debe recorrerse una única vez
-}
+{chequear como filtrar por dia y q se vaya cargando en el vector por su dia, sin perder las dimL}
+
 
 Program ejercicio3;
 
@@ -43,7 +44,7 @@ Type
   vrViaje = array[1..dimFr] Of viajes;
 
   vvMes = array [1..rangoMes] Of vrViaje;
-
+//array que guarda dimesiones logicas de cada dia
 Procedure inicializarvDimL(Var vL2: vLogico);
 
 Var i: integer;
@@ -162,6 +163,7 @@ a eliminar...
 No me rinde hacer un vv don dimLs, ya que al eliminar el primer elemento la posicion tambien se va a ver afectada -1, al pedo hacer esto..
 recibo el modulo y lo recorro todas las veces q sean necesarias.. elimino y vuelvo a recorrerlo si no esta paso al dia siguiente 
 }
+//elimina la pos pasada
 Procedure eliminarPosv(Var ok: Boolean;Var dimL: integer; pos: integer;Var v: vvMes; dia: integer);
 //adapta este modulo a lo q queres
 
