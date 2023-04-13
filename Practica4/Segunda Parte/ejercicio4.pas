@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 { Una cátedra dispone de información de sus alumnos (a lo sumo 1000). De cada alumno se conoce nro de
 alumno, apellido y nombre y cantidad de asistencias a clase. Dicha información se encuentra ordenada por
 nro de alumno de manera ascendente. Se pide:

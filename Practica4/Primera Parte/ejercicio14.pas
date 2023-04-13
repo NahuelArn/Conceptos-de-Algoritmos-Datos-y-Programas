@@ -1,7 +1,7 @@
-//para hacer esto necesitas un vector de vectores y algo parecido a listas 
+
 // el 13 y 14 se van a resolver con la misma logica 
 // si se hace declarando un for o un while y cargando en un vector de registros para despues recorrerlo esta mal
-// vos tenes 1000 proyectos y en cada [i] de proyecto no sabes cuantos desarrolladores van a ver
+// vos tenes 1000 proyectos y en cada [i] de proyecto no sabes cuantos desarrolladores se van a leer
 
 {
 El repositorio de código fuente más grande en la actualidad, GitHub, desea estimar el monto invertido en
@@ -31,6 +31,44 @@ dicho proyecto (1 a 5) y la cantidad de horas trabajadas. La lectura finaliza al
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//para hacer esto necesitas un vector de vectores y algo parecido a listas 
 //se tendria que implementar algo de esta indole, terminar de pensar como funcionaria si no se pueden vector de vectores ni listas hasta este punto
 
 Program prueba;
