@@ -19,7 +19,7 @@ Program ejercicio3;
 
 Const 
   dimFr = 200;
-  rangoMes = 4;
+  rangoMes = 3;
 
 Type 
   rango31 = 1..rangoMes;
@@ -31,9 +31,9 @@ Type
   End;
 {--------------------Item=C------------------------------}
   //no necesito incializarlo, necesito las posiciones cargadas y su dimL
-  vHijoIdAliminar = array [1..dimFr] Of integer;
+  {vHijoIdAliminar = array [1..dimFr] Of integer;
 
-  vPadreIdAliminar = array[1..31] Of integer;
+  vPadreIdAliminar = array[1..31] Of integer;}
 
 {---------------------------------------------------}
 {--------------------------------------------------}
@@ -105,6 +105,7 @@ Begin
     End;
 End;
 
+
 {b. Realizar un módulo que reciba el vector generado en a) e informe:
 - El monto promedio transportado de los viajes realizados
 - La distancia recorrida y el día del mes en que se realizó el viaje que transportó menos dinero.
@@ -149,7 +150,7 @@ Begin
       cantTotalViajes := cantTotalViajes+ dimL;
     End;
   Writeln('El monto promedio transportado en todos los viajes realizados es: ',promedio(sumaPromViajes,cantTotalViajes): 2: 2);
-  Writeln('La distancia total recorrida es: ',sumaDistanciaRecorrida,' y el dia del mes en se transporto menos dinero es: ',diaLow);
+  Writeln('La distancia total recorrida es: ',sumaDistanciaRecorrida:2:2,' y el dia del mes en se transporto menos dinero es: ',diaLow);
 End;
 {c. Realizar un módulo que reciba el vector generado en a) y elimine todos los viajes cuya distancia
 recorrida sea igual a 100 km.}
@@ -185,7 +186,7 @@ Var
   ok: Boolean;
   dia: integer;
 Begin
-  For i:=  1 To 31 Do
+  For i:=  1 To rangoMes Do
     Begin
       dimL := vL2[i];
       j := 0;
@@ -214,6 +215,8 @@ Begin
   // imprimirVv(vv,vL2);
   recorrerVector(vv,vL2);
   eliminarViajesCortos(vv,vL2);
+  imprimirVv(vv,vL2);
+
 End;
 
 Var 
