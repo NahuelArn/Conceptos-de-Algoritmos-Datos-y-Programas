@@ -1,8 +1,3 @@
-
-// el 13 y 14 se van a resolver con la misma logica 
-// si se hace declarando un for o un while y cargando en un vector de registros para despues recorrerlo esta mal
-// vos tenes 1000 proyectos y en cada [i] de proyecto no sabes cuantos desarrolladores se van a leer
-
 {
 El repositorio de código fuente más grande en la actualidad, GitHub, desea estimar el monto invertido en
 los proyectos que aloja. Para ello, dispone de una tabla con información de los desarrolladores que
@@ -29,6 +24,128 @@ dicho proyecto (1 a 5) y la cantidad de horas trabajadas. La lectura finaliza al
   d) La cantidad de Arquitectos de software de cada proyecto.
 }
 
+{Al finalizar la lectura... entiendo q no te pide almacenar los datos en alguna estructura}
+
+Program ejercicio14;
+
+Const 
+  dimFcod = 1000;
+
+Type 
+  rangoCod = -1..dimFcod;
+  rango5 = 1..5;
+  str20 = string[20];
+
+  participante = Record
+    paisR: str20;
+    codProyecto: rangoCod;
+    nombreDelProyecto: str20;
+    rol: rango5;
+    cantHsLaburadas: real;
+  End;
+
+  vParticipante = array[1..dimFcod] Of participante;
+  vContArqui = array[1..dimFcod] Of integer;
+
+  //funcion q te retorna cuanto se le paga al dev, segun su rol y hs trabajadas
+  //se dispone
+Function tabla(Var cantHs: real; cod: rangoCod): real;
+
+Begin
+  Case cod Of 
+    1 : tabla := cantHs*35.20;
+    2 : tabla := cantHs*27.45;
+    3 : tabla := cantHs*31.03;
+    4 : tabla := cantHs*44.28;
+    5 : tabla := cantHs*39.87;
+    Else Writeln('ERROR COD FUERA DE RANGO!');
+  End;
+End;
+
+Procedure inicializarVc(Var v: vContArqui);
+
+Var i: integer;
+Begin
+  For i:=  1 To dimFcod Do
+    v[i] := 0;
+End;
+
+Procedure leerDatos(Var r: participante);
+
+Begin
+  Writeln('Ingrese el pais del desarrollador');
+  readln(r.paisR);
+  Writeln('Ingrese el codigo del proyecto ');
+  readln(r.codProyecto);
+  If (r.codProyecto <> -1)Then
+    Begin
+      Writeln('Ingrese el nombre del proyecto');
+      readln(r.nombreDelProyecto);
+      Writeln('1: analista. 2 programador. 3: Administrador de bases de datos. 4: Arquitecto de Software. 5: administrador de redes y seguridad.');
+      Writeln('Ingrese el rol del dev: ');
+      readln(r.rol);
+    End;
+End;
+
+Procedure imprimirArquitectos(v: vContArqui);
+
+Var i: integer;
+Begin
+  For i:=  1 To dimFcod Do
+    Begin
+      Writeln('La cantidad de arquitectos de software del proyecto ',i,' es: ',v[i]);
+    End;
+End;
+
+Procedure procesarDatos(Var v: vParticipante);
+
+Var 
+  i: integer;
+  vCont: vContArqui;
+  r: participante;
+  montoArg,min: real;
+  totalHsAdminDeDatos,montoInversion: real;
+  codProyectorMenorInv: integer;
+Begin
+  inicializarVc(vCont);
+  montoArg := 0;
+  totalHsAdminDeDatos := 0;
+  min := 99999;
+  For i:= 1 To 1000 Do
+    Begin
+      montoInversion := 0;
+      leerDatos(r);
+      While (r.codProyecto <> -1) Do
+        Begin
+          v[r.codProyecto] := r; {lo guardo para nada, directamente no me sirve ese vector}
+          If (r.paisR = 'Argentina')Then
+            montoArg := montoArg + tabla(r.cantHsLaburadas,r.rol);
+          If (r.rol = 3)Then
+            totalHsAdminDeDatos := totalHsAdminDeDatos + r.cantHsLaburadas;
+          montoInversion := montoInversion + tabla(r.cantHsLaburadas, r.rol);
+          {La cantidad de Arquitectos de software de cada proyecto.}
+          If (r.rol = 4)Then
+            Begin
+              vCont[i] := vCont[i] +1;
+            End;
+          leerDatos(r);
+        End;
+      If (montoInversion < min)Then{en este caso si todas las inversiones superan 99999, no sirve esta forma}
+        Begin
+          min := montoInversion;
+          codProyectorMenorInv := i;
+        End;
+    End;
+  Writeln('El monto invertido en desarroladores Argentinos es: ',montoArg:2:2);
+  Writeln('La cantidad de horas trabajadas por Administradores de bases de datos es: ',totalHsAdminDeDatos:2:2);
+  imprimirArquitectos(vCont);
+End;
+
+Var 
+  v: vParticipante;
+Begin
+  procesarDatos(v);
+End.
 
 
 
@@ -43,6 +160,65 @@ dicho proyecto (1 a 5) y la cantidad de horas trabajadas. La lectura finaliza al
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{intentos?}
 
 
 
@@ -128,6 +304,8 @@ End.
 
 
 //--------------------------------------programEze------------------------------------------------------------------
+
+
 
 
 
@@ -300,6 +478,8 @@ Begin
 
 
 
+
+
 {leerDatos y lo cargas en un vector Herramientas / problema con la dimF del While / calculo de montos no es correcto necesitas calcular el precio*la cantidad de horas trabajadas
   y eso guardar en el vector herramienta}
   leer(v,vp);
@@ -328,6 +508,8 @@ End.
 
 
 //lo de abajo esta mal
+
+
 
 {
 El repositorio de código fuente más grande en la actualidad, GitHub, desea estimar el monto invertido en
