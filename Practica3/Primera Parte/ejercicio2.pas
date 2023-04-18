@@ -9,36 +9,28 @@ ingresar el año 2020, que no debe procesarse, e informe la cantidad de casamien
 meses de verano (enero, febrero y marzo) y la cantidad de casamientos realizados en los primeros 10 días de
 cada mes. Nota: utilizar el módulo realizado en b) para la lectura de fecha.
 }
-
-
 {"la cantidad de casamientos realizados en los primeros 10 días de
 cada mes", AcA Esta parte la pase por alto pero es implementar un case con 12 variables contadoras y despues informar}
 Program ejercicio2;
 
 Type 
   strmes = 1..12;
-  str31 = 1..31;
+  strDia = 1..31;
 
   casamiento = Record
     anho: integer;
     mes: strmes;
-    dia: str31;
+    dia: strDia;
   End;
 
 Function tridenteMes(mes: strmes): boolean;
 Begin
-  If (mes = 1) Or (mes = 2) Or (mes = 3) Then
-    tridenteMes := true
-  Else
-    tridenteMes := false;
+  tridenteMes:= ((mes = 1) Or (mes = 2) Or (mes = 3));
 End;
 
-Function primeros10(dia: str31): Boolean;
+Function primeros10(dia: strDia): Boolean;
 Begin
-  If (dia >= 1) And (dia <= 10)Then
-    primeros10 := true
-  Else
-    primeros10 := false;
+  primeros10:= ((dia >= 1) And (dia <= 10));
 End;
 
 Procedure leerDatos(Var fecha: casamiento);
@@ -60,7 +52,7 @@ Begin
   cont3 := 0;
   cont10 := 0;
   leerDatos(fecha);
-  While (fecha.anho = 2019) And (fecha.anho <> 2020) Do
+  While (fecha.anho = 2019) Do
     Begin
       If (tridenteMes(fecha.mes)) Then
         cont3 := cont3+1;

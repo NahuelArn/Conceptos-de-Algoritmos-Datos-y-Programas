@@ -1,4 +1,4 @@
-
+{Como lo habia entendido primero, tremendo codigo es, pero segun los ayudantes no pedia esto}
 {
   . Una empresa de transporte de caudales desea optimizar el servicio que brinda a sus clientes. Para ello,
 cuenta con información sobre todos los viajes realizados durante el mes de marzo. De cada viaje se cuenta
