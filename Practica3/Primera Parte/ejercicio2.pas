@@ -9,8 +9,7 @@ ingresar el año 2020, que no debe procesarse, e informe la cantidad de casamien
 meses de verano (enero, febrero y marzo) y la cantidad de casamientos realizados en los primeros 10 días de
 cada mes. Nota: utilizar el módulo realizado en b) para la lectura de fecha.
 }
-{"la cantidad de casamientos realizados en los primeros 10 días de
-cada mes", AcA Esta parte la pase por alto pero es implementar un case con 12 variables contadoras y despues informar}
+
 Program ejercicio2;
 
 Type 
@@ -25,22 +24,25 @@ Type
 
 Function tridenteMes(mes: strmes): boolean;
 Begin
-  tridenteMes:= ((mes = 1) Or (mes = 2) Or (mes = 3));
+  tridenteMes := ((mes = 1) Or (mes = 2) Or (mes = 3));
 End;
 
 Function primeros10(dia: strDia): Boolean;
 Begin
-  primeros10:= ((dia >= 1) And (dia <= 10));
+  primeros10 := ((dia >= 1) And (dia <= 10));
 End;
 
 Procedure leerDatos(Var fecha: casamiento);
 Begin
   Writeln('Ingrese el anho del casamiento ');
   readln(fecha.anho);
-  Writeln('Ingrese el mes del casamiento ');
-  readln(fecha.mes);
-  Writeln('Ingrese el dia del casamiento ');
-  readln(fecha.dia);
+  If (fecha.anho = 2019) Then
+    Begin
+      Writeln('Ingrese el mes del casamiento ');
+      readln(fecha.mes);
+      Writeln('Ingrese el dia del casamiento ');
+      readln(fecha.dia);
+    End;
 End;
 
 
@@ -63,3 +65,11 @@ Begin
   Writeln('La cantidad de casamientos en los meses de verano es: ', cont3);
   Writeln('La cantidad de casamientos en los primeros 10 dias de cada mes es: ', cont10);
 End.
+
+
+
+
+
+{Segun ayudante no era por aca, lo de abajo}
+{"la cantidad de casamientos realizados en los primeros 10 días de
+cada mes", AcA Esta parte la pase por alto pero es implementar un case con 12 variables contadoras y despues informar}
