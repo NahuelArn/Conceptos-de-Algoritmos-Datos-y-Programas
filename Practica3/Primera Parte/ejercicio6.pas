@@ -95,7 +95,7 @@ Begin
   While (dato.cantCores <> 0) Do
     Begin
       auxMarca := dato.marca;
-      While (dato.marca = auxMarca) And (dato.cantCores <> 0) Do
+      While (dato.cantCores <> 0) And (dato.marca = auxMarca) Do
         Begin
           If (cumpleCondicion1(dato.cantCores, dato.nm))Then
             Begin
