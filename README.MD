@@ -250,9 +250,9 @@ end;
 
 ```
 
+<h3 align="center"> Ordena de mayor a mayor/Ordena registros con criterio de un campo del registro </h3>
 ```pas
 
-<h3 align="center"> Ordena de mayor a mayor/Ordena registros con criterio de un campo del registro </h3>
 
 //ordeno mayor monton de inversion [mayorMonto...menorMonto]
 
