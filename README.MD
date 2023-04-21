@@ -242,7 +242,9 @@ begin
         end;
     end;
 end;
+```
 
+```pas
 
 <h3 align="center"> Ordena de mayor a mayor/Ordena registros con criterio de un campo del registro </h3>
 
