@@ -217,6 +217,7 @@ End;
 
 <h1 align="center"> Ordenacion de vector </h1>
 <h3 align="center"> Ordena de menor a mayor/enteros </h3>
+
 ```pas
 {
   este metodo busca en todo el array el minimo y lo va posicionando al principiendo uno a uno,
@@ -242,6 +243,7 @@ begin
         end;
     end;
 end;
+
 ```
 
 ```pas
