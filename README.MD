@@ -72,10 +72,13 @@
       readln(dato)
       digParesImpares(dato,par,impar);
    end.
+
 ```
 
 <h1 align="center"> Corte de control </h1>
+
 ```pas
+
 {Hay que tener en cuenta 2 cosas, el criterio de corte del programa y el criterio de "filtro" corte de control
 Ejemplo, se leen productos, cuando se lee el nombre Axion finaliza, se quiere saber cuantos productos de la misma marca se leen
 }
@@ -100,6 +103,7 @@ begin
         Writeln('La marca: ',auxMarcaActual, ' tiene ',contMismaMarca,' productos.');
     end;
 end.
+
 ```
 
 <h1 align="center"> Agregar en vector al final  </h1>
