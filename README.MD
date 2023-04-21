@@ -74,6 +74,34 @@
    end.
 ```
 
+<h1 align="center"> Corte de control </h1>
+```pas
+{Hay que tener en cuenta 2 cosas, el criterio de corte del programa y el criterio de "filtro" corte de control
+Ejemplo, se leen productos, cuando se lee el nombre Axion finaliza, se quiere saber cuantos productos de la misma marca se leen
+}
+const 
+  fin = 'axion';
+procedure leerDato(var producto: registro);
+begin end;
+var r: registro;
+begin
+  marcaMax:= '';
+  max:= -1;
+  leerDato(r);
+  While (producto.nombre <> 'fin') do //condicon de corte
+    auxMarcaActual:= prod.marca;
+    begin //cada condicion nueva q vayas agregando lo tiras para la derecha y las condiciones anteriores las vas acarreando en el siguiente while.
+      While(producto.nombre <> 'fin') and (prod.marca = auxMarcaActual) do //condicion de corte de control/filtrado
+        begin
+          contMismaMarca:= contMismaMarca+contMismaMarca;
+          leerDato(r);
+        end;
+        //en este punto tengo la cantidad de X producto
+        Writeln('La marca: ',auxMarcaActual, ' tiene ',contMismaMarca,' productos.');
+    end;
+end.
+```
+
 <h1 align="center"> Agregar en vector al final  </h1>
 
 ```pas 
@@ -93,9 +121,49 @@ Begin
 end;
 ```
 
+<h1 align="center"> "Eliminar en vector"  </h1>
 
+```pas 
+{Se verifica que la pos, pasada sea valida y despues se hacen desplazamientos, para mover los valores de la derecha de pos
+una posicion a la izquierda, luego se decrementa la dimL, en vector no se borra como tal solo pisamos los valores y a eso llamamos "borrar"
+si se va a la dimL original el valor original va seguir estando, si se quiere borrar un elemento [contenido] del vector,
+sigue la misma logica, o mas facil en un recorrido anterior te buscas el valor y te guardas directamente la pos y se la pasas a este algoritmo}
 
+Procedure eliminarPosVector(var v: vector; var ok: boolean; pos: integer; var dimL: integer);
+var i: integer;
+Begin
+  ok:= ((pos > 0) and (pos <= dimL)); //verifico q la pos sea valida
+    if(ok)then
+      begin
+        for i:= pos to (dimL-1) do //hasta menos 1 porq se "elima una posicion"
+          begin
+            v[pos]:= v[i+1]; //basicamente haces desplazamientos, 1:= [i+1=2]; 2:= [i+1=3] etc etc..
+          end;
+          dimL:= dimL-1; //decremento la dimL, ya q "borre un elemento del vector"
+      end;
+end;
+```
 
+<h1 align="center"> Insertar un valor en una posicion  </h1>
+
+```pas 
+{Se verifica que la pos, pasada sea valida y despues se hacen desplazamientos, para mover los valores para la derecha, estoy en el la pos 10
+en la pos[10+1=11] me guardo lo que hay en la pos[10], pos[9+1=10] me guardo lo que hay en la pos[9], asi hasta llegar a X posicion deseada}
+
+Procedure insertar(var v: vector; var ok: boolean; pos: integer; var dimL: integer; numOcosa: integer);
+var i: integer;
+Begin
+  ok:= ((pos >= 1) and (pos <= dimL) and (dimL+1 <= dimF)); //verifico q la pos sea valida
+    if(ok)then
+      begin
+        for i:= dimL downto pos do  //Arranco en la posDimL y voy hasta pos
+          begin
+            v[i+1]:= v[i]; //En la posActual+1, me cargo lo que hay en la posActual, son desplazamientos a la derecha, para hacer lugar al nuevo valor
+          end;
+          dimL:= dimL+1; //incremento la dimL, ya q inserte un nuevo valor en el vector
+      end;
+end;
+```
 
 <h1 align="center"> Busqueda binaria/dicotomica de un array ordenado  </h1>
 
@@ -144,4 +212,59 @@ Begin
     End;
   buscarNumero := encontrado;
 End;
+
+```
+
+<h1 align="center"> Ordenacion de vector </h1>
+<h3 align="center"> Ordena de menor a mayor/enteros </h3>
+```pas
+{
+  este metodo busca en todo el array el minimo y lo va posicionando al principiendo uno a uno,
+busco [i] si es mas chico q algun elemento del array me lo guardo en la iteracion que este i
+}
+procedure ordenarVector(var v: vOrdenar; dimL: integer);
+var a,b,i,min: integer;
+begin
+  for i:= 1 to (dimL-1) do
+    begin
+      a:= i; //me paro en la [x posicion]
+      for b:= i+1 to dimL do
+        begin
+          if(v[b] < v[a])then {pregunta si i+1 es mayor al primer campo, si es asi, cambia de lugar y asi se queda con el minimo, asi campo x campo va preguntando}
+            begin
+              a:= b; //en A tengo guardado la posicion del minimo de todo el vector
+            end;
+          {aca hacen el swap, intercambia los valores en sus posiciones correspondientes
+          Minmo lo guarda en la iteracion i, y lo que habia en i posicion lo intercambia en el lugar de la pos del minimo donde se encontraba}
+          min:= v[a]; //salvo el valor del minimo
+          v[a]:= v[i]; //swap de valores
+          v[i]:= min; //guardo en la pos i el valor minimo de todo el vector
+        end;
+    end;
+end;
+
+
+<h3 align="center"> Ordena de mayor a mayor/Ordena registros con criterio de un campo del registro </h3>
+
+//ordeno mayor monton de inversion [mayorMonto...menorMonto]
+
+procedure ordenarVector(var v: vInversiones ;dimL: integer);
+var a,b,i: Integer;
+  min: infoInversion;
+begin
+  dimL:= dimF;
+  for i:= 1 to dimL-1 do
+    begin
+      b:= i;
+      for a:= i+1 to dimL do
+        begin
+          //ordeno el vector [maximo...minimo]
+          if ((V[a].promedio) > (v[b].promedio)) then
+            b:= a;
+        end;
+        min:= v[b];
+        v[b]:= v[i];
+        v[i]:= min;
+    end;
+end;
 ```
