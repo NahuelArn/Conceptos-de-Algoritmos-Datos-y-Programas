@@ -30,3 +30,5 @@
   <summary> 6) ¿Qué hace la operación “Nil” aplicada en una variable del tipo puntero? </summary>
    Libera la conexion que existe entre la variable y la posicion de memoria, la memoria sigue ocupada y la memoria no se puede referenciar ni volver a utilizar, esa es la diferencia con el Dispose. El dispose te borra todo, te corta enlaces pero el Nil si tenes 2 variables con el mismo enlace y haces nil en una todavia te queda la otra con el enlace y podes acceder al contenido
 </p>
+
+![image](https://user-images.githubusercontent.com/100500003/233815991-832b66b2-1718-4b38-a5af-281e1d294695.png)
