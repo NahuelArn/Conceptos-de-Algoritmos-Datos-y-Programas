@@ -32,3 +32,7 @@
 </p>
 
 ![image](https://user-images.githubusercontent.com/100500003/233815991-832b66b2-1718-4b38-a5af-281e1d294695.png)
+
+<h1>Los ejercicios de la parte practica se hicieron con esta tabla</h1>
+
+![valoresPc](https://user-images.githubusercontent.com/100500003/233866950-475ca687-0d7c-45cf-9762-3e03ac2981a8.PNG)
