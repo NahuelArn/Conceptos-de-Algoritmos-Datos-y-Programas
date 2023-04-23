@@ -1,0 +1,1 @@
+punteroArray = vVector;
