@@ -84,6 +84,8 @@ begin
       leerDato(c);
     end;
     //no se me ocurre nada mas que clavar el algoritmo de ordenacion de vectores aca, durante la carga nose si se pueda o es correcto
+    // Se me sugirio, q tambien podria hacer un insertar, pero creo q es dar mas vueltas
+    //Se puede hacer un insertar o leer todo y despues ordenar si no se especifica en el enunciado
     ordenarVector(v,dimL);
 end;
 

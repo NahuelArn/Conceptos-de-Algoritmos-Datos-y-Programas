@@ -90,7 +90,8 @@ begin
     if(v[i].promedio > 50000)then
       cont50k:= cont50k+1;
 end;
-
+//aca se me sugirio, llamar a cargarVector sacar el monto total y asignarlo a un campo ponele montoTotal del mismo registro, me ahorro hacer el vector
+//es mas simple y mas practico
 procedure leerDato(var e: empresa;var v: vInversiones; i: integer;var cont50k: integer);
 begin
   Writeln('Ingrese el codigo de la empresa ');

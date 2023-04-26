@@ -30,7 +30,7 @@ Recordar: las fórmulas para el cálculo de volumen ( V ) del cilindro y del par
 cilindro: V = π*r2*h | paralelepipedo: V = a*b*h
 *)
 
-
+//Se me sugirio mandar un vectorConUnRegistroLargo, los campos q no se usan van a guardar basura
 //Como plantear el programa si tenemos dimF 5000;
 // y quiero guardar los 2 tipos de datos 
 //para despues recorrerlo y sacar los items q me pide
