@@ -1,3 +1,5 @@
+program aumentarCampo;
+type
 //aumenta en cada campo de num, el valor pasado por parametro (la lista ya se habia cargado)
 procedure aumentarCadaElemento(var L: lista; valor: integer);
 var
@@ -12,3 +14,7 @@ begin
     end;
     L:= aux;
 end;
+
+begin
+  
+end.
