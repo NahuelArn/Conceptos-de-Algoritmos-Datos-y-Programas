@@ -1,5 +1,6 @@
+program imprimirL;
 //--------------------Module Debuggin-----------------;
-
+type
 procedure imprimir(L: lista);
 begin
   While (L <> nil) do
@@ -9,3 +10,7 @@ begin
     end;
 end;
 //-----------------------------------------------------;
+var
+begin
+  
+end.
