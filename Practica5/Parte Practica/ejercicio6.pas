@@ -6,7 +6,8 @@ c) El programa debe minimizar tanto como sea posible el uso de la memoria estát
 bytes)
 
 }
-{//A
+//A
+{
 program ejercicio6;
 type
   banco = record
@@ -29,13 +30,17 @@ type
   cliente = array[1..5]of banco; //5*100 = 500
   vVector= array[1..100]of cliente;
 var
-  facturacion: vVector; //500*100 = 500
+  facturacion: vVector; //500*100 = 50000
 begin
   Writeln(SizeOf(facturacion)-2000);
   //los 2000 esos no se de q es, pero deberia ser 50k
 end.}
 
-{//b) El programa debe utilizar el 50% de memoria estática y el 50% de memoria dinámica
+
+
+
+{
+//b) El programa debe utilizar el 50% de memoria estática y el 50% de memoria dinámica
 program ejercicio6;
 type
   banco = record
@@ -101,7 +106,7 @@ type
 var
   facturacion: ^vVector; //500*100 = 500
   datos: registro4; //4 estatica
-begin
+begin 
   new(facturacion);
   Writeln(SizeOf(facturacion^));
 end.

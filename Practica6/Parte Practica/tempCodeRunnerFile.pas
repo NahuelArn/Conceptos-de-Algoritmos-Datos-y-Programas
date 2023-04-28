@@ -1,1 +1,1 @@
-imprimir(pri);
+imprimir(L);

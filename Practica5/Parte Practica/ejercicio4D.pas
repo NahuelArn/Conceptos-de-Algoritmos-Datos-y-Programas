@@ -12,6 +12,7 @@ begin
   new(pun);
   //Dispose(pun); //si lo pongo aca supongo q borra la nueva direccion creada y sigo con la orinal
   pun^:= 'Otro texto';
+  writeln(pun^);//imprimo un "Un texto"
 end;
 var
   pc: puntero_cadena; //4 de estatica

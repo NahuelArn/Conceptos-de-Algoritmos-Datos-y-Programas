@@ -17,10 +17,10 @@
       min1 := numero;
       nombre1:= nombreActual;
     end
-  else if(numero <= min2>) then
+  else if(numero <= min2) then
     begin
       min2:= numero;
-      nombre1:= nombreActual;
+      nombre2:= nombreActual;
     end;
 ```
 

@@ -1,6 +1,6 @@
 <h1 align="center">PARTE CONCEPTUAL</h1>
 
-
+<p align = "center">No prestar mucha atencion al sizeof, aveces agrega valores de mas </p>
 
 <p align="center">
 

@@ -43,4 +43,6 @@ a) Hasta la sentencia de la línea 18 ((2*20))*2 = 80 parametros, locales 4 = 80
 b) Hasta la sentencia de la línea 20 (46 de variables locales al programa + 84 )=  130 estatico
 c) Hasta la sentencia de la línea 23  (40 dinamico + 130 estatico) = 170 
 d) Hasta la sentencia de la línea 11 //no entiendo se supone q vuelva a contar todo lo que aparece? voy a tomarlo asi 4+80= 84+ 170= 254
-e) Hasta la sentencia de la línea 25} //total 254?
+e) Hasta la sentencia de la línea 25} //total 254? 
+
+//Enunciado de final, "Considere tanto variables estaticas como dinamicas, parametros y variables locales a los modulos"
