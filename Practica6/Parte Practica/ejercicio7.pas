@@ -6,6 +6,7 @@ han determinado los siguientes criterios:
 - sólo se financiarán proyectos cuyo costo de mantenimiento no supere el costo de construcción.
 - no se financiarán proyectos espaciales que analicen ondas de radio, ya que esto puede realizarse desde la
 superficie terrestre con grandes antenas.
+
 A partir de la información disponible de las sondas espaciales (la lista generada en ejercicio 6), implementar
 un programa que:
 a. Invoque un módulo que reciba la información de una sonda espacial, y retorne si cumple o no con los
@@ -63,6 +64,41 @@ begin
   Writeln('Ingrese el rango del espectro, 1. radio; 2. microondas; 3.infrarrojo; 4. luz visible; 5. ultravioleta; 6. rayos X; 7. rayos gamma');
   readln(s.rangoEspectro);
 end;
+//--------------------------Module debug-----------------------------------------------------
+procedure caseSonas(categoria: integer;var tipo: str20);
+begin
+  case categoria of
+    1: tipo:= 'radio';
+    2: tipo:= 'Microondas';
+    3: tipo:= 'Infrarrojo';
+    4: tipo:= 'Luz visible';
+    5: tipo:= 'UltraVioleta';
+    6: tipo:= 'rayos X';
+    7: tipo:= 'Rayos gamma';
+    else Writeln('Algo salio mal pa');
+  end;
+end;
+
+procedure imprimir(s: sonda);
+var  tipo: str20;
+begin
+  caseSonas(s.rangoEspectro,tipo);
+  Writeln('El nombre de la sonda es: ',s.nombre);
+  Writeln('La duracion en meses de la sonda es: ',s.duracionMeses);
+  Writeln('El costo de la construccion es: ',s.costos.costoConstruccion:2:2);
+  Writeln('El costo del manteniemiento es: ',s.costos.costoMantenimiento:2:2);
+  Writeln('El rango del espectro es: ',s.rangoEspectro, ' entonces es: ',tipo)
+end;
+
+procedure moduleDebug(L: lista);
+begin
+  While (L <> nil)do
+    begin
+      imprimir(L^.dato);
+      L:= L^.sig;
+    end;
+end;
+//--------------------------------------------------------------------------
 
 procedure agregarAdelante(var L: lista; s: sonda);
 var nue: lista;
@@ -82,29 +118,7 @@ begin
   until (s.nombre = 'GAIA');
 end;
 
-// procedure caseSonas(categoria: integer;var tipo: str20);
-// begin
-//   case categoria of
-//     1: tipo:= 'radio';
-//     2: tipo:= 'Microondas';
-//     3: tipo:= 'Infrarrojo';
-//     4: tipo:= 'Luz visible';
-//     5: tipo:= 'UltraVioleta';
-//     6: tipo:= 'rayos X';
-//     7: tipo:= 'Rayos gamma';
-//     else Writeln('Algo salio mal pa');
-//   end;
-// end;
 
-// procedure imprimirSondasCategorias(vC: vCategorias);
-// var i: integer; tipo: str20;
-// begin
-//   for i:=  1 to 7 do
-//     begin
-//       caseSonas(i,tipo);
-//       Writeln('La cantidad de sondas en ',tipo,' es: ',vC[i]); 
-//     end;
-// end;
 //funcion que espera 2 costos y q tipo de caterogia es, retorna si va poder ser financiado
 function seraFinanciado(costoMantenimiento,costoConstruccion: real; categoria: rango7): boolean;
 var aux: Boolean;
@@ -130,7 +144,7 @@ begin
       L3:= L3^.sig;
     end;
     Writeln('La cantidad de proyectos que no van a ser financiados es: ',cantNofinanciados);
-    Writeln('El costo total(construcción y mantenimiento) de los proyectos no financiados seria: ',costoTotal);
+    Writeln('El costo total(construccion y mantenimiento) de los proyectos no financiados seria: ',costoTotal:2:2);
 end;
 //recorre la lista main, llamo a una funcion validadora para saber si va poder ser financiada la Sonda
 // si es true, lo cargo en mi lista L2 si no, lo cargo en mi lista L3, por ultimo recorro la lista no financiada
@@ -147,6 +161,11 @@ begin
       L:= L^.sig;
     end;
     noFinanciados(L3);
+    Writeln('Si cumplen para ser financiados');
+    moduleDebug(L2);
+    Writeln('No cumplen para ser financiados');
+    Writeln();
+    moduleDebug(L3);
 end;
 
 //modulo que llama a los modulos mas importantes
@@ -157,6 +176,8 @@ begin
   L2:= nil;
   L3:= nil;
   cargarLista(L);
+  Writeln('Debuggin');
+  moduleDebug(L);
   recorrerLista(L,L2,L3);
 end;
 
@@ -166,3 +187,35 @@ begin
   L:= nil;
   procesarDatos(L);
 end. 
+
+
+{debg
+
+Sonda1
+12
+20000
+21000
+5
+
+Sonda2 
+13
+12000
+10000
+2
+
+Sonda3
+17
+13000
+9000
+6
+
+GAIA
+20
+21000
+16000
+3
+
+Todas menos la sonda 1 no superan el mantenimiento no en costos de construccion
+en la Lista que si cumplen deberia retornar todas menos la Sonda 1
+
+}
