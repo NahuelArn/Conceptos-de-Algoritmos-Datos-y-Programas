@@ -157,7 +157,7 @@ begin
         begin
           agregarAdelante(L2,L^.dato);
         end
-      else agregarAdelante(L3,L2^.dato); 
+      else agregarAdelante(L3,L^.dato); 
       L:= L^.sig;
     end;
     noFinanciados(L3);
