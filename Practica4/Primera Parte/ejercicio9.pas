@@ -42,9 +42,9 @@ Var
 Begin
   dimL := 0;
   leerDatos(r);
-  While (r.dni <> -1) And (dimL <= cantIngresantes) Do
+  While (r.dni <> -1) And (dimL < cantIngresantes) Do
     Begin
-      i := i+1;
+      dimL := dimL+1;
       v[dimL] := r;
       leerDatos(r);
     End;
