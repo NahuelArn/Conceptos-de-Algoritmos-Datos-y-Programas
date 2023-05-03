@@ -23,16 +23,20 @@ Begin
         flag := flag +1;
       i := i + 1;
     End;
-  //Esto se puede simplicar es logica innecesaria pero bueno
-  //se podria hacer que dentro del while evalue i<=3 and cumple = true y cuando un caracter no sea vocal cumple = false y salga d1(abajo esta hecho asi)
-  //es facil de implementar si solo verificamos en minusculas pero tengo 2 se complica un poco, se podria hacer toda una cadena larga q tenga mayusculas y minuscaulas pero no se si es lo mas optimo
-  If flag =3 Then
+  If (flag = 3) Then
     cumple := true;
   If (cumple) Then
     Writeln('La 3 letras ingresadas son vocales')
   Else
     Writeln('Al menos un caracter no era vocal');
 End.
+
+
+
+//Esto se puede simplicar es logica innecesaria pero bueno
+//se podria hacer que dentro del while evalue i<=3 and cumple = true y cuando un caracter no sea vocal cumple = false y salga d1(abajo esta hecho asi)
+
+//es facil de implementar si solo verificamos en minusculas pero tengo 2 se complica un poco, se podria hacer toda una cadena larga q tenga mayusculas y minuscaulas pero no se si es lo mas optimo
 
 
 
