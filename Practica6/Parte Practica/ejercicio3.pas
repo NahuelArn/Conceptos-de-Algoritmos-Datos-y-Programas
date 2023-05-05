@@ -37,7 +37,7 @@ begin
     end;
     L:= aux;
 end;
-
+//agregarATRAS
 procedure armarNodo(var L,Ult: lista; v: integer);
 var
   nue: lista;

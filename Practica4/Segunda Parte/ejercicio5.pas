@@ -161,8 +161,11 @@ begin
   maxAux:= -1;
   incializarVciudades(vCiudad);
   sumaMesMontoTodosLsClientes:= 0;
-  for i:=  1 to dimLclientes do
+  // for i:=  1 to dimLclientes do
+  i:= 0;
+  While i < dimLclientes do
     begin
+      i:= i+1;
       anhoActual:= v[i].fecha.anho;
       contAnhoContr:= 0;
       While (v[i].fecha.anho = anhoActual) do
@@ -176,6 +179,7 @@ begin
               // vCiudad[v[i].codCiudad].codCiudad:= vCiudad[v[i].codCiudad].codCiudad + v[i].codCiudad;
               vCiudad[v[i].codCiudad].cantClientes:= vCiudad[v[i].codCiudad].cantClientes + 1;
               sumaMesMontoTodosLsClientes:= sumaMesMontoTodosLsClientes + v[i].montoMensual;
+              i:= i+1;
             end;
             contAnhoContr:= contAnhoContr+1;
             Writeln('El mes ',mesActual, ' tuvo ',contMesContr, ' contratos.');
