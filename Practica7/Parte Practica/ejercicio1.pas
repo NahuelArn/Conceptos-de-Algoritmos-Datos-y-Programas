@@ -43,7 +43,7 @@ begin
   readln(p.nombre);
   Writeln('Ingrese la edad de la persona');
   readln(p.edad);
-  Writeln('Ingrese el codigo de la persona ');
+  Writeln('Ingrese el codigo de genero d la persona ');
   readln(p.codGenero);
 end;
 
