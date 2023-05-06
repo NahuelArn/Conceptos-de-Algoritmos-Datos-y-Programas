@@ -8,7 +8,7 @@ a. Informar la cantidad de personas cuyo DNI contiene más dígitos pares que im
 b. Informar los dos códigos de género más elegidos.
 c. Realizar un módulo que reciba un DNI, lo busque y lo elimine de la estructura. El DNI puede no
 existir. Invocar dicho módulo en el programa principal.}
-{58}
+{2.58}
 program ejercicio1;
 const
   dimF5 = 5;
@@ -175,8 +175,8 @@ begin
           end
         else 
           ant^.sig:= act^.sig;
+        Dispose(act);
       end;
-    Dispose(act);
 end;
 {c. Realizar un módulo que reciba un DNI, lo busque y lo elimine de la estructura. El DNI puede no
 existir. Invocar dicho módulo en el programa principal.}
