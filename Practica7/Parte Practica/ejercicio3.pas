@@ -5,13 +5,14 @@ de auto y para un mismo código de auto pueden existir 1 o más viajes. Se pide:
 a. Informar los dos códigos de auto que más kilómetros recorrieron.
 b. Generar una lista nueva con los viajes de más de 5 kilómetros recorridos, ordenada por número
 de viaje.}
+
 program ejercicio3;
 type
   str20 = string[20];
   viaje = record
     numViaje: integer;
     codAuto: integer;
-    direccionOrigen: str20;
+    direccionOrigen: str20; //lo guardo como string porq no lo uso y creo que seria mas comun un string
     direccionDestino: str20;
     kmRecorridos: real;
   end;
@@ -27,14 +28,17 @@ procedure leerDatos(var v: viaje); //se dispone
 begin
   Writeln('Ingrese el num de viaje');
   readln(v.numViaje);
-  Writeln('Ingrese el cod del auto');
-  readln(v.codAuto);
-  Writeln('Ingrese la direccion de origen');
-  readln(v.direccionOrigen);
-  Writeln('Ingrese la direccion de destino');
-  readln(v.direccionDestino);
-  Writeln('Writeln ingrese la cant de kilometros recorridos');
-  readln(v.kmRecorridos);
+  if(v.numViaje <> -1)then
+    begin
+      Writeln('Ingrese el cod del auto');
+      readln(v.codAuto);
+      Writeln('Ingrese la direccion de origen');
+      readln(v.direccionOrigen);
+      Writeln('Ingrese la direccion de destino');
+      readln(v.direccionDestino);
+      Writeln('Writeln ingrese la cant de kilometros recorridos');
+      readln(v.kmRecorridos);
+    end;
 end;
 
 procedure insertarOrdenado(var L: lista; v: viaje; var tipo: Boolean); //se dispone
@@ -74,7 +78,7 @@ var
 begin
   //me invento una condicion de corte ya que no hay
   leerDatos(v);
-  While (v.numViaje <> 0)do
+  While (v.numViaje <> -1)do
     begin
       insertarOrdenado(L,v,tipo);
       leerDatos(v);
@@ -134,9 +138,18 @@ begin
       L:= L^.sig;
     end;
 end;
+
 procedure imprimirLista(L: lista);
 begin
-  
+  While (L <> nil)do
+    begin
+      Writeln('El numero de viaje es: ',L^.dato.numViaje);
+      Writeln('El codigo del auto es: ',L^.dato.codAuto);
+      Writeln('La direccion de origen es: ',L^.dato.direccionOrigen);
+      Writeln('La direccion  de destino es: ',L^.dato.direccionDestino);
+      Writeln('La cantidad de kilometros recorridos es: ',L^.dato.kmRecorridos);
+      L:= L^.sig;
+    end;
 end;
 
 procedure procesarDatos(var L: lista);
