@@ -1,2 +1,1 @@
-leerDatosPersonales(cP);
-  c.datosPersonales:= cp;
+      // L:= L^.sig;

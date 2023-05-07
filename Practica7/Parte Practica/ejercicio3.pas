@@ -23,6 +23,20 @@ type
     dato: viaje;
     sig: lista;
   end;
+ {---------------------debuggin----------------------------------------} 
+procedure imprimirLista(L: lista);
+begin
+  While (L <> nil)do
+    begin
+      Writeln('El numero de viaje es: ',L^.dato.numViaje);
+      Writeln('El codigo del auto es: ',L^.dato.codAuto);
+      Writeln('La direccion de origen es: ',L^.dato.direccionOrigen);
+      Writeln('La direccion  de destino es: ',L^.dato.direccionDestino);
+      Writeln('La cantidad de kilometros recorridos es: ',L^.dato.kmRecorridos);
+      L:= L^.sig;
+    end;
+end;
+ {-----------------------------------------------------------------------} 
 
 procedure leerDatos(var v: viaje); //se dispone
 begin
@@ -41,23 +55,23 @@ begin
     end;
 end;
 
-procedure insertarOrdenado(var L: lista; v: viaje; var tipo: Boolean); //se dispone
+procedure insertarOrdenado(var L: lista; v: viaje; tipo: Boolean); //se dispone
 var
   nue,act,ant: lista;
 begin
   new(nue);
   nue^.dato:= v;
   act:= L;
-  nue:= L;
+  ant:= L;
   if(tipo = false)then //se usa en la carga
     begin
       While ((act <> nil) and (v.codAuto > act^.dato.codAuto))do //aca tendria que ser >=
-        begin
+        begin     
           ant:= act;
           act:= act^.sig;
         end;
     end
-  else 
+  else if(tipo = true)then
     begin //se usa para generar la nueva lista
       While ((act <> nil) and (v.numViaje > act^.dato.numViaje))do //aca tendria que ser >=
         begin
@@ -65,8 +79,10 @@ begin
           act:= act^.sig;
         end;
     end;
-  if(act = nil)then
-    L:= nue
+  if(act = ant)then
+    begin
+      L:= nue;
+    end
   else 
     ant^.sig:= nue;
   nue^.sig:= act;
@@ -109,7 +125,6 @@ var
   cod1,cod2: integer;
 begin
   max1:= -9999;
-  cod1:= 1; 
   While (L <> nil)do
     begin
       kmRecorridosActuales:= 0;
@@ -120,7 +135,7 @@ begin
           L:= L^.sig;
         end;
         calcular2Maximos(kmRecorridosActuales, max1, max2, auxCodAuto, cod1,cod2);
-      L:= L^.sig;
+      // L:= L^.sig;
     end;
     Writeln('Los 2 codigos de auto que mas kilometros recorrieron fueron: ',cod1, ' y ', cod2);
 end;
@@ -137,20 +152,9 @@ begin
         insertarOrdenado(ListaNueva,L^.dato,tipo);
       L:= L^.sig;
     end;
+  imprimirLista(ListaNueva);
 end;
 
-procedure imprimirLista(L: lista);
-begin
-  While (L <> nil)do
-    begin
-      Writeln('El numero de viaje es: ',L^.dato.numViaje);
-      Writeln('El codigo del auto es: ',L^.dato.codAuto);
-      Writeln('La direccion de origen es: ',L^.dato.direccionOrigen);
-      Writeln('La direccion  de destino es: ',L^.dato.direccionDestino);
-      Writeln('La cantidad de kilometros recorridos es: ',L^.dato.kmRecorridos);
-      L:= L^.sig;
-    end;
-end;
 
 procedure procesarDatos(var L: lista);
 var
