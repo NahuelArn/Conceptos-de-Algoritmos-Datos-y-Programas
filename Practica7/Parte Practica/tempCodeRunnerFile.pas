@@ -1,1 +1,2 @@
-calcularMaxMin;
+var
+   vC: vContCategoria;
