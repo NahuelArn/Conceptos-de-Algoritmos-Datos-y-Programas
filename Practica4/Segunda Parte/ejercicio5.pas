@@ -14,7 +14,7 @@ d. Cantidad de clientes que superan mensualmente el monto promedio entre todos l
 
 program ejercicio5;
 const 
-  dimLclientes = 500;
+  dimFclientes = 500;
   dimFciudades= 2400;
 type
   rangoAxF = 'A'..'F';
@@ -38,7 +38,7 @@ type
     cantClientes: integer;
   end;
 
-  vClientes = array[1..dimLclientes]of cliente;
+  vClientes = array[1..dimFclientes]of cliente;
   vCategorias = array [rangoAxF]of integer;
   vCiudades = array[rango2400]of herramienta;
 
@@ -66,7 +66,7 @@ end;
 procedure cargarVector(var v: vClientes);
 var r: cliente; i:integer;
 begin
-  for i:= 1 to dimLclientes do
+  for i:= 1 to dimFclientes do
     begin
       leerDatos(r);
       v[i]:= r;
@@ -141,7 +141,7 @@ procedure recorrerDenuevoVector(v: vClientes; promedioTotal: real);
 var i,cont: integer;
 begin
   cont:= 0;
-  for i:= 1 to dimLclientes do
+  for i:= 1 to dimFclientes do
     if(v[i].montoMensual > promedioTotal)then
       cont:= cont+1;
     Writeln('La cantidad de clientes que superan mensualmente el monto promedio entre todos los clientes es: ',cont);
@@ -161,9 +161,9 @@ begin
   maxAux:= -1;
   incializarVciudades(vCiudad);
   sumaMesMontoTodosLsClientes:= 0;
-  // for i:=  1 to dimLclientes do
+  // for i:=  1 to dimFclientes do
   i:= 0;
-  While i < dimLclientes do
+  While i < dimFclientes do
     begin
       i:= i+1;
       anhoActual:= v[i].fecha.anho;
@@ -190,7 +190,7 @@ begin
     Writeln('El anho que se firmo mas contratos es: ',maxAnho);
     imprimirVcategorias(vCategoria);//esto tambien lo puedo informar en procesarData Por eso lo pas por referencia
     ordenarVectorCiudades(vCiudad);
-    promedioTotal:= promedio(sumaMesMontoTodosLsClientes, dimLclientes);
+    promedioTotal:= promedio(sumaMesMontoTodosLsClientes, dimFclientes);
     recorrerDenuevoVector(v,promedioTotal);
 end;
 
