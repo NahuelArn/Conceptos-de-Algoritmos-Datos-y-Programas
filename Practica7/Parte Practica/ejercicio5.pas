@@ -213,5 +213,6 @@ end;
 var 
   L: lista;
 begin
+  L:=NIL;
   procesarDatos(L);
 end.
