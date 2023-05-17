@@ -4,8 +4,8 @@ escritorio.
 }
 program ejercicio1;
 type
-  cadena = string[50];
-  puntero_cadena = ^cadena;
+  cadena = string[50]; //51
+  puntero_cadena = ^cadena; //4
 var
   pc: puntero_cadena;    //4 de estatica de tipo puntero
 begin
