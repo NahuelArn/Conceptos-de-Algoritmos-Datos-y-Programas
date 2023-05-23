@@ -1,2 +1,1 @@
-Writeln('Ingrese la fecha');
-  // readln(hs.fecha);
+(act <> NIL)  and (act^.datos.codEliminar <> codEliminar)
