@@ -28,7 +28,7 @@ type
     sueldoBruto: real;
   end;
 
-//aca supongo q hay que usar la logica, es posible que un empleado tenga el codigo 0? Si entonces un repeat until y lo proceso
+//aca supongo q hay que usar la logica, es posible que un empleado tenga el codigo 0? No, entonces un while 
 {La lectura finaliza al ingresar el código de
 empleado 0. La información se lee ordenada por código de país}
 procedure leerDatos(var e:empleado);
@@ -62,31 +62,33 @@ var e: empleado;
 begin
   max1:= -9999;
   contEmpleadosNecesitanUnAumento:= 0;
-  repeat 
+   
     leerDatos(e);
-    {La información se lee ordenada por código de país}
-    auxCodPais:= e.codPais;
-    contEmPleados:= 0;
-    maxSueldo:= -9999;
-    While (e.codPais = auxCodPais)do
+    While (e.codEmpleado <> 0)do
       begin
-         contEmPleados:= contEmPleados+1;
-         if(verificadorAntiguedad(e.anhosAntiguedad) and (sueldoNoSuficiente(e.sueldoBruto)))then //idem2
-          contEmpleadosNecesitanUnAumento:= contEmpleadosNecesitanUnAumento+1;
-         if(e.sueldoBruto > maxSueldo)then
+        {La información se lee ordenada por código de país}
+        auxCodPais:= e.codPais;
+        contEmPleados:= 0;
+        maxSueldo:= -9999;
+        While (e.codEmpleado <> 0) and (e.codPais = auxCodPais)do
           begin
-            maxSueldo:= maxSueldo;
-            codMejorPago:= e.codEmpleado;
-          end;  
-         leerDatos(e);
+            contEmPleados:= contEmPleados+1;
+            if(verificadorAntiguedad(e.anhosAntiguedad) and (sueldoNoSuficiente(e.sueldoBruto)))then //idem2
+              contEmpleadosNecesitanUnAumento:= contEmpleadosNecesitanUnAumento+1;
+            if(e.sueldoBruto > maxSueldo)then
+              begin
+                maxSueldo:= maxSueldo;
+                codMejorPago:= e.codEmpleado;
+              end;  
+            leerDatos(e);
+          end;
+        if(contEmPleados > max1)then
+          begin
+            max1:= contEmPleados;
+            paisMayorCant:= auxCodPais;  
+          end;
+        Writeln('El codigo de empleado que cobra mejor en el pais ',auxCodPais,' es: ',codMejorPago);
       end;
-    if(contEmPleados > max1)then
-      begin
-        max1:= contEmPleados;
-        paisMayorCant:= auxCodPais;  
-      end;
-    Writeln('El codigo de empleado que cobra mejor en el pais ',auxCodPais,' es: ',codMejorPago);
-  until (e.codEmpleado = 0);
   Writeln('El pais con mayor cantidad de empleados es: ',paisMayorCant);
   Writeln('la cantidad de empleados de mas de 10 anhos de antiguedad cuyo sueldo bruto no alcance los 1500 dolares es: ',contEmpleadosNecesitanUnAumento);
 

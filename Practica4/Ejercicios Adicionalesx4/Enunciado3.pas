@@ -130,7 +130,7 @@ begin
       auxCodPais:= e.codPais;
       contEmPleados:= 0;
       maxSueldo:= -9999;
-      While (e.codPais = auxCodPais)do
+      While (i < dimL) and (e.codPais = auxCodPais)do
         begin
           contEmPleados:= contEmPleados+1;
           if(verificadorAntiguedad(e.anhosAntiguedad) and (sueldoNoSuficiente(e.sueldoBruto)))then //idem2

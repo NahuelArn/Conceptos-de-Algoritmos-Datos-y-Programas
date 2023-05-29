@@ -65,13 +65,16 @@ begin
   readln(e.sueldoBruto);   
 end;
 
-procedure cargarVector(var v: vEmpleados);
-var i:integer; e: empleado;
+procedure cargarVector(var v: vEmpleados; var i: integer;);
+var  e: empleado;
 begin
-  for i:= 1 to dimF2k do
+  i:= 0;
+  leerDatos(e);
+  while (i < dimF2k) and (e.codEmpleado <> 0) do
     begin
-      leerDatos(e);
+      i:= i+1;
       v[i]:= e;
+      leerDatos(e);
     end;
 end;
 
@@ -114,7 +117,7 @@ begin
     Writeln('El pais con mayor cantidad de empleados es: ',paisMax);
 end;
 
-procedure recorrerVector(v: vEmpleados; vC: vContadorHerramienta);
+procedure recorrerVector(v: vEmpleados; vC: vContadorHerramienta; dimL: integer);
 var 
   e: empleado;
   contEmpleadosNecesitanUnAumento,i: integer;
@@ -122,7 +125,8 @@ var
 begin
   contEmpleadosNecesitanUnAumento:= 0;
   maxSueldo:= -9999;
-  for i:= 1 to dimF2k do
+  i:= 1;
+  for i:= 1 to dimL do
     begin
       e:= v[i];
       vC[e.codPais].contadorPaises:= vC[e.codPais].contadorPaises + 1; //vContador de paises
@@ -141,10 +145,11 @@ procedure procesarDatos();
 var
   vC: vContadorHerramienta;
   v: vEmpleados;
+  dimL: integer;
 begin
-  cargarVector(v);
+  cargarVector(v, dimL);
   inicializarHerramienta(vC);
-  recorrerVector(v,vC);
+  recorrerVector(v,vC,dimL);
 end;
 
 begin
