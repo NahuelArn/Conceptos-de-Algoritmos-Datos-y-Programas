@@ -17,9 +17,10 @@ B) Invoque a un módulo que reciba la estructura generada en A) e imprima el nom
 y el título de cada libro con más de 250 ventas.
 }
 
+
 program ejercicio13;
 const
-  
+
 type
   str20 = string[20];
   rango35 = 1..35;
