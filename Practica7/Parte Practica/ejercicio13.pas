@@ -50,8 +50,8 @@ procedure leerLibro(var l: libro);
 begin
   Writeln('Ingrese el titulo ');
   readln(l.titulo);
-  Writeln('Ingrese el nombre de la editorial ');
-  readln(l.nombreEditorial);
+  // Writeln('Ingrese el nombre de la editorial ');
+  l.nombreEditorial:= 'Planeta Libros';
   Writeln('Ingrese la cantidad de paginas ');
   readln(l.cantPaginas);
   Writeln('Ingrese el anho de edicion ');
@@ -80,11 +80,14 @@ procedure cargarLibros(var L: listaLibro);
 var
   li: libro;
   Ult: listaLibro;
+  auxTxt: str20;
 begin
   repeat
-    leerLibro(li);
-    agregarAtras(L,Ult,li);
-  until  (li.titulo = 'Planeta Libros');
+    Writeln('Ingrese el nombre de la editorial ');
+    readln(auxTxt);
+    if(auxTxt = 'Planeta Libros')then
+      leerLibro(li);
+  until  (li.titulo = 'Relatos de un naufrago');
 end;
 
 procedure procesarDatos(var L: listaLibro);

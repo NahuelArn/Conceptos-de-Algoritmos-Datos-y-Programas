@@ -131,7 +131,7 @@ Begin
         Begin
           auxLocalidad := dato.localidadPertenece;
           canTotalEscuelasPorLocalidad := 0;
-          While (dato.localidadPertenece = auxLocalidad) And (dato.cod <> -1) Do
+          While (dato.cod <> -1)  And (dato.localidadPertenece = auxLocalidad) Do
             Begin
               {● Título de los proyectos de la localidad de Daireaux cuyo código posee igual cantidad de dígitos pares e impares.}
               If (dato.localidadPertenece = 'Daireaux') And (cumpleDaireaux(dato.cod)) Then
@@ -140,7 +140,7 @@ Begin
                 End;
               canTotalEscuelas := canTotalEscuelas + 1;
               auxEscuela := dato.nameEscuela;
-              While (dato.nameEscuela = auxEscuela) And (dato.cod <> -1) Do
+              While (dato.cod <> -1) and (dato.localidadPertenece = auxLocalidad) and (dato.nameEscuela = auxEscuela)  Do
                 Begin
                   canTotalEscuelasPorLocalidad := canTotalEscuelasPorLocalidad + 1;
                   dosMaximos(dato.cantAlumnos,max1,max2,dato.nameEscuela,nameMax1,nameMax2);

@@ -13,7 +13,6 @@ Realizar un programa que procese la información de los tickets y calcule:
 
 a) Cantidad de vuelos dentro de un mismo país que hayan tenido más de 50 pasajeros
 b) DNI del cliente que más dinero gastó en tickets
-
 c) Cantidad de clientes cuyo DNI terminen en 0 o en 5
 
 }
