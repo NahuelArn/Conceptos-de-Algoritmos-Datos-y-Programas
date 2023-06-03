@@ -88,7 +88,7 @@ end;
 //podia ser un case pero como son 200 valores, 
 //es mejor usar vector en una funcion, que cada posicion tiene su valor y que retorne el precio de x codigo y aprovechar el indexamiento 
 //opcion 1
-function tabla(cod: rango200): real;
+function tabla(cod: rango200): real;//desaprobado
 begin
   case cod of
     1: tabla:= 200;

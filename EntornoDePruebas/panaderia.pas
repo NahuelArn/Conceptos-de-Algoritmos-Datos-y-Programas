@@ -160,7 +160,8 @@ begin
       dniActual:= L^.dato.dni;
       montoTotal:= 0;
       montoActual:= 0;
-      While(L <> nil)and (dniActual <> L^.dato.dni)do
+      
+      While(L <> nil)and (dniActual = L^.dato.dni)do
         begin
           montoActual:= L^.dato.cantKlsComprados * v[L^.dato.categoria].precioXkilo;
           montoTotal:= montoActual + montoTotal;

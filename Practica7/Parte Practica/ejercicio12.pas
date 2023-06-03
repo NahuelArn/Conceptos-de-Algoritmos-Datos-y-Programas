@@ -49,7 +49,8 @@ procedure inicializarLista(var L: lista);
 begin
   L:= nil;  
 end;
-
+//lo toman como mal el "Tabla" implementadolo con un case
+//deberia ser un vector
 function tablaSubscripciones(tipo: integer): real; //tabla q se dispone
 begin
   case tipo of
