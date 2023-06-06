@@ -7,11 +7,10 @@ el nombre y el año de nacimiento de las conejas que tuvieron en promedio más d
 b) Realice un módulo que reciba la estructura generada en a) e imprima los nombres de las conejas con código par, nacidas antes del año 2016.
 c) Realice una función que reciba la información de las conejas y un código de coneja, y retorne 
 la cantidad máxima de crías que tuvo la coneja con dicho código en alguno de sus partos (retornar -1 si la coneja no se encuentra en la estructura).}
+//0:46
 program tema2021;
 
 const
-
-
 
 type
   vPartos = array[1..rango10]of integer;

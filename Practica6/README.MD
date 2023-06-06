@@ -104,10 +104,45 @@ begin
           ant^.sig:= act^.sig; 
         dispose(act);  //se elima el actual
       end;
-
+end;
 ```
-<h2 align = "center"> No Ordenado y Ningun Criterio De Orden </h2>
+<h2 align = "center">Eliminar un elemento de la lista No ordenada y con elementos repetidos </h2>
 <p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
+<p> Elimina todos los nodos que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
+
+//Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
+</p>
+  
+```pas 
+procedure elimarTodasLasOcurrenciasDesordenado(var L: lista; valor: integer);
+var
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil)do  // mientras no terminemos la lista
+    begin
+      if(valor <> act^.dato)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            L:= act^.sig
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          act:= ant;
+        end;
+    end;
+end;
+```
+
+
+<!-- <p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
 <p> Elimina todos los nodos que coincida con el elemento a eliminar
 Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
 
@@ -139,17 +174,56 @@ begin
           actual:= ant;
         end;
     end;
+``` -->
+
+
+
+
+
+<h2 align = "center"> Ordenado y Con Criterio De Orden y Primera Ocurrencia </h2>
+<p align="center"> eliminar un elemento de la lista Ordenada y sin elementos repetidos</p>
+<p> Elimina todos los nodos que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 4 5 6, se quiere eliminar el 3, entonces nos queda = 1 4 5 6
+
+//Algoritmo para una lista que tiene un criterio de orden y elimina la primera ocurrencia que aparesca
+</p>
+  
+```pas 
+procedure elimarTodasLasOcurrenciasLista(var L: lista; dni: integer; ok: boolean);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  ok:= false;
+  While(act <> nil)and(dni < act^.dato.dni);  // mientras no se encuentre el dni y el dni actual no sea mayor al buscado
+    begin
+      ant:= act;
+      act:= act^.sig;
+    end;
+    if(act <> nil)then //no es vacia la lista y encontre el nodo a eliminar
+      begin
+        ok:= true;
+        if(act = L)then //el elemento a eliminar es el primero
+          L:= act^.sig
+        else  //el elemento es algun otro, pero no el primero
+          ant^.sig:= act^.sig; 
+        dispose(act);  //se elima el actual
+      end;
+  end;
 ```
 
 
-<p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
+<h2 align = "center">Ordenado y Con Criterio De Orden y Todas las Ocurrencias </h2>
+<p align="center"> eliminar un elemento de la lista Ordenada y con elementos repetidos</p>
 <p> Elimina todos los nodos que coincida con el elemento a eliminar
-Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
+Ejem: se tiene cargado 1 3 3 5 7 9 10, se quiere eliminar el 3, entonces nos queda = 1 5 7 9 10
 
 //Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
 </p>
   
-```pas 
+<!-- ```pas 
 procedure elimarTodasLasOcurrenciasLista(var L: lista; valor: integer);
 var
   nue: lista;
@@ -157,7 +231,7 @@ var
 begin
   ant:= L;
   act:= L;
-  While(act <> nil);  // mientras no terminemos la lista
+  While(act <> nil) and ( valor < act^.dato.dni);  // mientras no terminemos la lista
     begin
       if(dni <> act^.dato.dni)then
       begin
@@ -174,36 +248,165 @@ begin
           actual:= ant;
         end;
     end;
+end;
+``` -->
+```pas
+  procedure buscarOrdenado(var act, ant: lista ; d : integer);
+begin
+  while (act <> nil) and (act^.dato < d) do begin
+    ant := act;
+    act := act^.sig;
+  end;
+end;
+
+procedure eliminarNodo (var pri, act, ant: lista);
+var
+  aux : lista;
+begin
+  aux := act^.sig;
+  if (act = pri) then
+     pri := pri^.sig
+  else
+     ant^.sig := act^.sig;
+  dispose(act);
+  act := aux;
+end;
+
+procedure eliminarOcurrenciasOrdenado (var L : lista; d : integer);
+var
+  act, ant : lista;
+begin
+  act := L;
+  ant := L;
+  buscarOrdenado(act, ant, d);
+
+  while (act <> nil) and (act^.dato = d) do
+        eliminarNodo(L, act, ant);
+end; 
+
 ```
 
 
-ME FALTA PONER ESTOS 2, CAMBIAR NOMBRE Y LOGICA PARA Q SE ACOPLE CON ORDENADO Y CRITERIO DE ORDEN 
 
 
 
-<h2 align = "center"> Ordenado y Con Criterio De Orden </h2>
-<p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
-<p> Elimina todos los nodos que coincida con el elemento a eliminar
-Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
 
-//Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
-</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- program sarasa;
+
+type
+  lista = ^nodo;
   
-```pas 
-procedure elimarTodasLasOcurrenciasLista(var L: lista; valor: integer);
+  nodo = record
+    dato: integer;
+    sig: lista;
+  end;
+
+
+procedure insertarOrdenado(var L: lista; num: integer);
 var
   nue: lista;
   ant,act: lista;
 begin
+  new(nue);
+  nue^.dato:= num;
   ant:= L;
   act:= L;
-  While(act <> nil);  // mientras no terminemos la lista
+  While(act <> nil) and (num > act^.dato)do
     begin
-      if(dni <> act^.dato.dni)then
+      ant:= act;
+      act:= act^.sig;
+    end;
+  if(act = ant)then //primero o vacio
+    L:= nue
+  else  //medio
+    ant^.sig:= nue;
+  nue^.sig:= act;
+end;
+
+procedure cargarLista(var L: lista);
+var
+  num: integer;
+begin
+  Writeln('Ingrese un numero ');
+  readln(num);
+  While(num <> -1)do
+    begin
+      insertarOrdenado(L,num); //numeros ordenados en orden ascendente
+      Writeln('Ingrese un numero ');
+      readln(num);
+    end;
+end;
+{procedure elimarTodasLasOcurrenciasDesordenado(var L: lista; valor: integer);
+var
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil)do  // mientras no terminemos la lista
+    begin
+      if(valor <> act^.dato)then
       begin
         ant:= act;
         act:= act^.sig;
-      end;
+      end
       else //no es vacia la lista y encontre un nodo a eliminar
         begin
           if(act = L)then //el elemento a eliminar es el primero
@@ -211,7 +414,155 @@ begin
           else  //el elemento es algun otro, pero no el primero
             ant^.sig:= act^.sig; 
           dispose(act);  //se elima el actual
-          actual:= ant;
+          act:= ant;
         end;
     end;
-```
+end;}
+
+
+{procedure elimarTodasLasOcurrenciasOrdenado(var L: lista; valor: integer);
+var
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil)do  // mientras no terminemos la lista
+    begin
+      if(valor <> act^.dato)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            begin
+              L:= act^.sig;
+              ant:= L;
+            end
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          act:= ant;
+        end;
+    end;
+end;}
+{procedure elimarTodasLasOcurrenciasOrdenado(var L: lista; valor: integer);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil)do  // mientras no terminemos la lista
+    begin
+      if(valor <> act^.dato)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            L:= act^.sig
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          act:= ant;
+        end;
+    end;
+end;}
+
+{procedure elimarTodasLasOcurrenciasOrdenado(var L: lista; valor: integer);
+var
+  ant, act, sig: lista;
+begin
+  ant := nil;
+  act := L;
+
+  while (act <> nil) do
+  begin
+    if (act^.dato = valor) then
+    begin
+      if (ant = nil) then
+        L := act^.sig
+      else
+        ant^.sig := act^.sig;
+      
+      sig := act^.sig;
+      dispose(act);
+      act := sig;
+    end
+    else
+    begin
+      ant := act;
+      act := act^.sig;
+    end;
+  end;
+end;}
+
+procedure imprimirLista(L: lista; var punt: Lista);
+var i: integer;
+begin
+  i:= 0;
+  punt:= L; //conservo mi puntero
+  While(L <> nil)do
+    begin
+    i:= i+1;
+    Writeln('El numero actual en la iteracion ',i, ' es: ',L^.dato);
+    L:= L^.sig;
+    end;
+end;
+
+var
+  L: lista;
+  ocurrenciaRepetida: integer;
+  punt: lista;
+begin
+  cargarLista(L);
+  //se lee 1 8 7 2 4 5 4 2 9
+  //se almacena 1 2 4 4 5 7 8 9
+  Writeln('Ingrese ocurrencia a eliminar de toda la lista: ');
+  readln(ocurrenciaRepetida);
+  //se espera eliminar el 4
+  elimarTodasLasOcurrenciasOrdenado(L,ocurrenciaRepetida);
+  //verificar estado de lista
+  imprimirLista(L,punt);
+  if(L = punt)then
+    Writeln('Puntero no afectado ');
+end.
+
+{ Resolucion Mati
+	procedure buscarOrdenado(var act, ant: lista ; d : dato);
+begin
+  while (act <> nil) and (act^.dato < d) do begin
+    ant := act;
+    act := act^.sig;
+  end;
+end;
+
+procedure eliminarNodo (var pri, act, ant: lista);
+var
+  aux : lista;
+begin
+  aux := act^.sig;
+  if (act = pri) then
+     pri := pri^.sig
+  else
+     ant^.sig := act^.sig;
+  dispose(act);
+  act := aux;
+end;
+
+procedure eliminarOcurrenciasOrdenado (var L : lista; d : dato);
+var
+  act, ant : lista;
+begin
+  act := L;
+  ant := L;
+  buscarOrdenado(act, ant, d);
+
+  while (act <> nil) and (act^.dato = d) do
+        eliminarNodo(L, act, ant);
+end;   -->
+
