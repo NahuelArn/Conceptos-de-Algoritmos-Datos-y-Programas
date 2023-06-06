@@ -7,8 +7,8 @@ a. Para cada embarazada, la semana con mayor aumento de peso.
 
 b. El aumento de peso total de cada embarazada durante el embarazo.
 }
-
-program cuatro; 
+//
+program pureba4; 
 const 
 	cantSemanas = 42; 
 type 

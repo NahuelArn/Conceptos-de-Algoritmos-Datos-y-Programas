@@ -187,7 +187,7 @@ begin
       dniActual:= L^.dato.dniSocio;
       cantPrestamosJunio:= 0; 
       cantPrestamos:= 0; 
-      While(L<> nil) and(dniActual = L^.dato.dniSocio)do
+      While(L<> nil) and (dniActual = L^.dato.dniSocio)do
         begin
           inicializarVc(vC);
           if(L^.dato.fechaPrestamo.mes = 6)then

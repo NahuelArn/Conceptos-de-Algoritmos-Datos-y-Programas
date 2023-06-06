@@ -75,8 +75,8 @@ end;
 ```
 
 <p align="center"> eliminar un elemento de la lista</p>
-<p> Queda cargado con un criterio de orden que se lo pasamos por parametro
-Ejem: se lee 1 3 5 4 2 6, se puede ordenar para que quede almacenado de manera ascendente = 1 2 3 4 5 6 o descendente = 6 5 4 3 2 1
+<p> Elimina el primer nodo que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 5 4 2 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6 
 
 //Algoritmo para una lista que no tiene ningun criterio de orden y la primera ocurrencia que aparesca se elimine, no las demas
 </p>
@@ -106,3 +106,74 @@ begin
       end;
 
 ```
+<h2 align = "center"> No Ordenado y Ningun Criterio De Orden </h2>
+<p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
+<p> Elimina todos los nodos que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
+
+//Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
+</p>
+  
+```pas 
+procedure elimarTodasLasOcurrenciasLista(var L: lista; valor: integer);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil);  // mientras no terminemos la lista
+    begin
+      if(dni <> act^.dato.dni)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end;
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            L:= act^.sig
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          actual:= ant;
+        end;
+    end;
+```
+
+
+<p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
+<p> Elimina todos los nodos que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
+
+//Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
+</p>
+  
+```pas 
+procedure elimarTodasLasOcurrenciasLista(var L: lista; valor: integer);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil);  // mientras no terminemos la lista
+    begin
+      if(dni <> act^.dato.dni)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end;
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            L:= act^.sig
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          actual:= ant;
+        end;
+    end;
+```
+
+
