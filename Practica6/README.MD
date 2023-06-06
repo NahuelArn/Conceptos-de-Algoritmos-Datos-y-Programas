@@ -177,3 +177,41 @@ begin
 ```
 
 
+ME FALTA PONER ESTOS 2, CAMBIAR NOMBRE Y LOGICA PARA Q SE ACOPLE CON ORDENADO Y CRITERIO DE ORDEN 
+
+
+
+<h2 align = "center"> Ordenado y Con Criterio De Orden </h2>
+<p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
+<p> Elimina todos los nodos que coincida con el elemento a eliminar
+Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6
+
+//Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
+</p>
+  
+```pas 
+procedure elimarTodasLasOcurrenciasLista(var L: lista; valor: integer);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil);  // mientras no terminemos la lista
+    begin
+      if(dni <> act^.dato.dni)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end;
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            L:= act^.sig
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          actual:= ant;
+        end;
+    end;
+```
