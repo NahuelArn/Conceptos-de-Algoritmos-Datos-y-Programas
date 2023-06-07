@@ -114,7 +114,7 @@ Ejem: se tiene cargado 1 3 5 4 2 3 6, se quiere eliminar el 3, entonces nos qued
 //Algoritmo para una lista que no tiene ningun criterio de orden y todas las ocurrencias que aparescan se eliminan
 </p>
   
-```pas 
+<!-- ```pas 
 procedure elimarTodasLasOcurrenciasDesordenado(var L: lista; valor: integer);
 var
   ant,act: lista;
@@ -139,8 +139,36 @@ begin
         end;
     end;
 end;
+``` -->
+```pas
+procedure elimarTodasLasOcurrenciasDesordenado(var L: lista; valor: integer);
+var
+  ant,act: lista;
+begin
+  ant:= L;
+  act:= L;
+  While(act <> nil)do  // mientras no terminemos la lista
+    begin
+      if(valor <> act^.dato)then
+      begin
+        ant:= act;
+        act:= act^.sig;
+      end
+      else //no es vacia la lista y encontre un nodo a eliminar
+        begin
+          if(act = L)then //el elemento a eliminar es el primero
+            begin
+              L:= act^.sig;
+              ant:= L;
+            end
+          else  //el elemento es algun otro, pero no el primero
+            ant^.sig:= act^.sig; 
+          dispose(act);  //se elima el actual
+          act:= ant;
+        end;
+    end;
+end;
 ```
-
 
 <!-- <p align="center"> eliminar un elemento de la lista No ordenada y con elementos repetidos</p>
 <p> Elimina todos los nodos que coincida con el elemento a eliminar
