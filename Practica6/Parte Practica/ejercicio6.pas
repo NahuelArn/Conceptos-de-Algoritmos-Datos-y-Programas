@@ -89,6 +89,11 @@ c. La cantidad de sondas cuya duración estimada supera la duración promedio de
 d. El nombre de las sondas cuyo costo de construcción supera el costo promedio entre todas las sondas.
 Nota: para resolver los incisos a), b), c) y d), la lista debe recorrerse la menor cantidad de veces posible}
 //modulo que me devuelve el nombre segundo el numero de la categoria
+
+
+//Deberia ser un vector este Case De Sondas
+
+{procedure }
 procedure caseSonas(categoria: integer;var tipo: str20);
 begin
   case categoria of

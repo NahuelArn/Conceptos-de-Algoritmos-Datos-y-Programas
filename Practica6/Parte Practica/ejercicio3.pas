@@ -24,18 +24,21 @@ begin
 end;
 //-----------------------------------------------------;
 //aumenta en cada campo de num, el valor pasado por parametro
-procedure aumentarCadaElemento(var L: lista; valor: integer);
+procedure aumentarCadaElemento( L: lista; valor: integer);
 var
-aux: lista;//necesito esto o pierdo mi puntero inicial.
+// aux: lista;//necesito esto o pierdo mi puntero inicial.   // ArnDelFuturo: esto no es necesario La lista se tenia que pasar por valor
+{Cuando se quiere modificar/incrementar un valor de un nodo, se debe pasar por valor 
+Ahora si se quiere manipular direcciones se pasa por referencia
+}
 //en el imprimir no lo ncesito porq paso la lista por Valor
 begin
-  aux:= L;
+  // aux:= L;
   While (L <> nil)do
     begin
       L^.num:= L^.num+ valor;
       L:= L^.sig; 
     end;
-    L:= aux;
+    // L:= aux;
 end;
 //agregarATRAS
 procedure armarNodo(var L,Ult: lista; v: integer);
