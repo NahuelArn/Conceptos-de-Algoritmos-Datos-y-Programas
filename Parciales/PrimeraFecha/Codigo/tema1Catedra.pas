@@ -15,8 +15,8 @@ e IMPRIMA en pantalla
   3. Cantidad de alumnos que no posean ningún digito cero en su DNI
   NOTA: Implementar el programa principal}
 
-
-program tema1Catedras;
+// 0:33:
+program tema1Catedra;
 
 const
   dimFpresencia = 12;
