@@ -74,7 +74,7 @@ begin
 end;
 ```
 
-<p align="center"> eliminar un elemento de la lista</p>
+<h2 align="center"> eliminar un elemento de la lista</h2>
 <p> Elimina el primer nodo que coincida con el elemento a eliminar
 Ejem: se tiene cargado 1 3 5 4 2 6, se quiere eliminar el 3, entonces nos queda = 1 5 4 2 6 
 
