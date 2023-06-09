@@ -217,7 +217,7 @@ Ejem: se tiene cargado 1 3 4 5 6, se quiere eliminar el 3, entonces nos queda = 
 </p>
   
 ```pas 
-procedure elimarTodasLasOcurrenciasLista(var L: lista; dni: integer; ok: boolean);
+procedure elimarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer; ok: boolean);
 var
   nue: lista;
   ant,act: lista;
