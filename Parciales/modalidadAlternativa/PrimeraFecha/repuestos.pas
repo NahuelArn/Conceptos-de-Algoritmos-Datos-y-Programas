@@ -43,7 +43,7 @@ type
   vContR= array[100..3400]of integer;
 
   vContReales =array[100..3400]of Real;
-  
+
 procedure inicializarLista(var L: lista);
 begin
   L:= nil;  
@@ -120,7 +120,7 @@ begin
   inicializarVc(vCantRepSevendio);
   While(L <> nil)do //primer recorrido Dispone
     begin
-      vCantRepSevendio[L^.dato.codRepuesto]:= vCantRepSevendio[L^.dato.codRepuesto]+1cant; '''sda   
+      vCantRepSevendio[L^.dato.codRepuesto]:= vCantRepSevendio[L^.dato.codRepuesto] + L^.dato.cantVendida; // no +1;noerror
       L:= L^.sig;
     end;
   
