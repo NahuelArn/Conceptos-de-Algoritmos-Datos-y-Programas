@@ -162,9 +162,11 @@ begin
         begin
           sumaMontoProvedor:= sumaMontoProvedor+ L^.dato.montoAbonado;
           vC[L^.dato.mesRealizoCompra]:= vC[L^.dato.mesRealizoCompra] +1;
+          
           cantDeMontosTotal:= cantDeMontosTotal+1;
           if(mesJulio(L^.dato.mesRealizoCompra))then
             begin
+              //cantDeMontosTotal:= cantDeMontosTotal+1;
               sumaMontoJulio:= sumaMontoJulio+ L^.dato.montoAbonado;
             end;
           L:= L^.sig;
