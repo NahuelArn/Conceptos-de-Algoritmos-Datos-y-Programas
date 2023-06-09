@@ -82,7 +82,7 @@ Ejem: se tiene cargado 1 3 5 4 2 6, se quiere eliminar el 3, entonces nos queda 
 </p>
   
 ```pas 
-procedure elimarTodasLasOcurrenciasLista(var L: lista; dni: integer; ok: boolean);
+procedure eliminarLaPrimeraOcurrenciaEnUnaListaDesordenada(var L: lista; dni: integer; ok: boolean);
 var
   ant,act: lista;
 begin
