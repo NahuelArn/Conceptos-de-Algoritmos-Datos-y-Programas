@@ -84,13 +84,12 @@ Ejem: se tiene cargado 1 3 5 4 2 6, se quiere eliminar el 3, entonces nos queda 
 ```pas 
 procedure elimarTodasLasOcurrenciasLista(var L: lista; dni: integer; ok: boolean);
 var
-  nue: lista;
   ant,act: lista;
 begin
   ant:= L;
   act:= L;
   ok:= false;
-  While(act <> nil)and(dni <> act^.dato.dni);  // mientras no se encuentre el dni y no terminemos la lista
+  While(act <> nil)and(dni <> act^.dato.dni)do;  // mientras no se encuentre el dni y no terminemos la lista
     begin
       ant:= act;
       act:= act^.sig;
@@ -219,13 +218,12 @@ Ejem: se tiene cargado 1 3 4 5 6, se quiere eliminar el 3, entonces nos queda = 
 ```pas 
 procedure elimarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer; ok: boolean);
 var
-  nue: lista;
   ant,act: lista;
 begin
   ant:= L;
   act:= L;
   ok:= false;
-  While(act <> nil)and(dni < act^.dato.dni);  // mientras no se encuentre el dni y el dni actual no sea mayor al buscado
+  While(act <> nil)and(dni < act^.dato.dni)do;  // mientras no se encuentre el dni y el dni actual no sea mayor al buscado
     begin
       ant:= act;
       act:= act^.sig;
@@ -241,6 +239,32 @@ begin
       end;
   end;
 ```
+<!-- procedure eliminarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer);
+var
+  ant, act: lista;
+  cantItera: integer;
+begin
+  ant := nil;
+  act := L;
+  cantItera:= 0;
+  while (act <> nil) and (act^.dato < dni) do
+  begin
+    ant := act;
+    act := act^.sig;
+    cantItera:= cantItera+1;
+  end;
+  
+  if (act <> nil) and (act^.dato = dni) then
+  begin
+    if (ant = nil) then
+      L := act^.sig
+    else
+      ant^.sig := act^.sig;
+    
+    dispose(act);
+  end;
+  Writeln('Cant Iteraciones',cantItera);
+end; -->
 
 
 <h2 align = "center">Ordenado y Con Criterio De Orden y Todas las Ocurrencias </h2>
