@@ -355,7 +355,7 @@ begin
   act := aux;
 end;
 
-procedure eliminarOcurrenciasOrdenado (var L : lista; d : integer);
+procedure elimarTodasLasOcurrenciasOrdenado (var L : lista; d : integer);
 var
   act, ant : lista;
 begin
