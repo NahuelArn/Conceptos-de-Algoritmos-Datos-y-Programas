@@ -3,7 +3,8 @@ CADP 2022-TEMA 1-COMPLETO
 16/07/2022
 Un supermercado necesita analizar la información de las compras realizadas en el último año para reposición de stock.
 a) Realizar un módulo que cargue en una estructura de datos adecuada la información de las compras. 
-  De cada compra se conoce el monto abonado, el mes en que se realizó la compra, la cantidad de productos comprados y el nombre del proveedor. 
+  De cada compra se conoce el monto abonado, el mes en que se realizó la compra, la cantidad de productos comprados y el nombre d
+  el proveedor. 
   Por cada proveedor puede haber más de una compra. La información de las compras debe quedar ordenada por nombre de proveedor. 
   La lectura finaliza al ingresar la compra con monto -1 que no debe procesarse.
 b) Realizar un programa que utilice la información generada en el inciso a) e informe:
@@ -163,10 +164,10 @@ begin
           sumaMontoProvedor:= sumaMontoProvedor+ L^.dato.montoAbonado;
           vC[L^.dato.mesRealizoCompra]:= vC[L^.dato.mesRealizoCompra] +1;
           
-          cantDeMontosTotal:= cantDeMontosTotal+1;
+          // cantDeMontosTotal:= cantDeMontosTotal+1;
           if(mesJulio(L^.dato.mesRealizoCompra))then
             begin
-              //cantDeMontosTotal:= cantDeMontosTotal+1;
+              cantDeMontosTotal:= cantDeMontosTotal+1;
               sumaMontoJulio:= sumaMontoJulio+ L^.dato.montoAbonado;
             end;
           L:= L^.sig;

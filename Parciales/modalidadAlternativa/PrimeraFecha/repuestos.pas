@@ -120,7 +120,7 @@ begin
   inicializarVc(vCantRepSevendio);
   While(L <> nil)do //primer recorrido Dispone
     begin
-      vCantRepSevendio[L^.dato.codRepuesto]:= vCantRepSevendio[L^.dato.codRepuesto]+1;   
+      vCantRepSevendio[L^.dato.codRepuesto]:= vCantRepSevendio[L^.dato.codRepuesto]+1cant; '''sda   
       L:= L^.sig;
     end;
   
