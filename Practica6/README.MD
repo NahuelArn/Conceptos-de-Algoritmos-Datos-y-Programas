@@ -215,7 +215,38 @@ Ejem: se tiene cargado 1 3 4 5 6, se quiere eliminar el 3, entonces nos queda = 
 //Algoritmo para una lista que tiene un criterio de orden y elimina la primera ocurrencia que aparesca
 </p>
   
-```pas 
+```pas
+procedure elimarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer);
+var
+  ant,act: lista;
+  contIteraciones: integer;
+begin
+  <!-- Writeln('Flag 0'); -->
+  ant:= L;
+  act:= L;
+  <!-- contIteraciones:= 0; -->
+  While(act <> nil)and(dni > act^.dato)do //ascendente // mientras no se encuentre el dni y el dni actual no sea mayor al buscado
+    begin
+      ant:= act;
+      act:= act^.sig;
+      contIteraciones:= contIteraciones+1;
+      <!-- Writeln('Flag 1'); -->
+    end;
+    <!-- Writeln('Flag 2'); -->
+    if(act <> nil) and (dni = act^.dato)then //no es vacia la lista y encontre el nodo a eliminar
+      begin
+        if(act = L)then //el elemento a eliminar es el primero
+          L:= act^.sig
+        else  //el elemento es algun otro, pero no el primero
+          ant^.sig:= act^.sig; 
+        dispose(act);  //se elima el actual
+        //contIteraciones:= contIteraciones+1;
+      end;
+    <!-- Writeln('Cant Itereaciones ',contIteraciones); -->
+  end;
+
+```
+<!-- ```pas 
 procedure elimarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer; ok: boolean);
 var
   ant,act: lista;
@@ -238,7 +269,7 @@ begin
         dispose(act);  //se elima el actual
       end;
   end;
-```
+``` -->
 <!-- procedure eliminarLaPrimeraOcurrenciaListaOrdenada(var L: lista; dni: integer);
 var
   ant, act: lista;
