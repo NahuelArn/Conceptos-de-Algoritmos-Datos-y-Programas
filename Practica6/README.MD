@@ -314,10 +314,42 @@ end;
 
 ```
 
+<h2 align = "center">Ordenado y Con Criterio De Orden y Todas las Ocurrencias </h2>
+<p>Otra Variante</p>
 
+```pas
+procedure elimarTodasLasOcurrenciasOrdenado (var pI:lista; v:integer);
+var ant,act:lista;
+  {contIteraciones: integer;}
+begin
+     act:=pI;
+     contIteraciones:= 0;
+     while (act <> nil) and (act^.dato <= v) do
+     begin
+          if(act^.dato <> v)then
+          begin       
+               ant:=act;
+               act:=act^.sig;
+          end
+          else 
+             begin
+                  if(act = pI)then
+                  begin
+                       pI:=pI^.sig;
+                       ant:=pI
+                  end
+                  else begin 
+                    ant^.sig:=act^.sig;
+                  end; 
+             dispose(act);
+             {contIteraciones:= contIteraciones+1;}
+             act:=ant;
+             end;
+     end;
+     {Writeln('Cantidad de veces q borro',contIteraciones);}
+end;
 
-
-
+```
 
 
 

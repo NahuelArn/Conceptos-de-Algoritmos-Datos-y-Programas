@@ -1,5 +1,5 @@
 
-program sarasa;
+program pruebaFranco;
 
 type
   lista = ^nodo;
