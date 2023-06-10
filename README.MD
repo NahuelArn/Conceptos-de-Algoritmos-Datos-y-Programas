@@ -230,7 +230,7 @@ busco [i] si es mas chico q algun elemento del array me lo guardo en la iteracio
 procedure ordenarVector(var v: vOrdenar; dimL: integer);
 var a,b,i,min: integer;
 begin
-  for i:= 1 to (dimL-1) do
+  for i:= 1 to (dimL-1) do  //por que -1? porque arrancamos tomando un valor q va ser el minimo, el campo tomado en cada iteracion tomamos como -1
     begin
       a:= i; //me paro en la [x posicion]
       for b:= i+1 to dimL do

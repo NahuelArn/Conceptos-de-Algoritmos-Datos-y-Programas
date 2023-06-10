@@ -3,7 +3,7 @@
 <p align="center">Algoritmos que se repiten</p>
 
 
-<p align="center"> Agregar Adelante</p>
+<h2 align="center"> Agregar Adelante</h2>
 <p> Queda cargada de forma inversa la estructura de datos.
 "los elementos deben quedar cargados de forma inversa"
 Ejem: se lee 1 2 3 4 5 6, se imprime 6 5 4 3 2 1
@@ -21,7 +21,7 @@ begin
 end;
 ```
 
-<p align="center"> Agregar Atras</p>
+<h2 align="center"> Agregar Atras</h2>
 <p> Queda cargada de la misma forma en que fue cargada la estructura la estructura de datos.
 "la estructura debe conserva el orden en que fueron leidos los elementos"
 Ejem: se lee 1 2 3 4 5 6, se imprime 1 2 3 4 5 6
@@ -44,7 +44,7 @@ begin
 end;
 ```
 
-<p align="center"> Insertar Ordenado</p>
+<h2 align="center"> Insertar Ordenado</h2>
 <p> Queda cargado con un criterio de orden al dato que se lo pasamos por parametro
 Ejem: se lee 1 3 5 4 2 6, se puede ordenar para que quede almacenado de manera ascendente = 1 2 3 4 5 6 o descendente = 6 5 4 3 2 1
 
