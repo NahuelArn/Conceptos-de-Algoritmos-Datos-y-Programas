@@ -164,6 +164,7 @@ Begin
           begin
             v[i+1]:= v[i]; //En la posActual+1, me cargo lo que hay en la posActual, son desplazamientos a la derecha, para hacer lugar al nuevo valor
           end;
+          v[pos] := numOcosa; // Asigno el nuevo valor en la posición indicada
           dimL:= dimL+1; //incremento la dimL, ya q inserte un nuevo valor en el vector
       end;
 end;
