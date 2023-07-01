@@ -141,7 +141,7 @@ Begin
       begin
         for i:= pos to (dimL-1) do //hasta menos 1 porq se "elima una posicion"
           begin
-            v[pos]:= v[i+1]; //basicamente haces desplazamientos, 1:= [i+1=2]; 2:= [i+1=3] etc etc..
+            v[i]:= v[i+1]; //basicamente haces desplazamientos, 1:= [i+1=2]; 2:= [i+1=3] etc etc..
           end;
           dimL:= dimL-1; //decremento la dimL, ya q "borre un elemento del vector"
       end;
@@ -243,8 +243,8 @@ begin
           {aca hacen el swap, intercambia los valores en sus posiciones correspondientes
           Minmo lo guarda en la iteracion i, y lo que habia en i posicion lo intercambia en el lugar de la pos del minimo donde se encontraba}
           min:= v[a]; //salvo el valor del minimo
-          v[a]:= v[i]; //swap de valores
-          v[i]:= min; //guardo en la pos i el valor minimo de todo el vector
+          v[a]:= v[i]; //swap de valores  // en la pos[A que es el de la 2da iteracion] me guardo el valor que habia en el elemento pos[i] // en este punto tengo la pos[i] libre para guardar mi minimo al principio
+          v[i]:= min; //guardo en la pos i el valor minimo de todo el vector    
         end;
     end;
 end;

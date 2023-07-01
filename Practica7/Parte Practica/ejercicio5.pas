@@ -140,13 +140,12 @@ begin
         begin
           max:= vC[i].kmTotalRecorridos;
           patenteMax:= vC[i].patente;
-        end
-      else
-        if(vC[i].kmTotalRecorridos < min)then
-          begin
-            min:= vC[i].kmTotalRecorridos;
-            patenteMin:= vC[i].patente;
-          end;
+        end;
+      if(vC[i].kmTotalRecorridos < min)then
+        begin
+          min:= vC[i].kmTotalRecorridos;
+          patenteMin:= vC[i].patente;
+        end;
     end;
     Writeln('La patente del camion que mas kilometros recorridos tiene es: ',patenteMax);
     Writeln('La patente del camion que menos kilometros recorridos tiene es: ',patenteMin);
@@ -216,3 +215,36 @@ begin
   L:=NIL;
   procesarDatos(L);
 end.
+
+
+
+
+//variante, tecnicamente estaria maso menos, usar el campo de camiones con una variable extra, para facilitarme un punto
+//dice una vez leida y almacena la informacion hacer X puntos, se deberia implementar un vector con 2 campos, kilometros totales y patentes o
+//kilimtros totales, sacar 1 max y un min y guardarme las posiciones del max y min
+//despues aprovechar el indexamiento e informar las patentes usando el vector q se dispone y las 2 posiciones q acabo de retornar
+{se dispone de un VECTOR de camiones de 1..100
+patente
+anhoFabricacion
+capacidadMax
+
+se debe leer y almacenar viajes = LISTA
+codViaje
+codCamion //1..100
+distanciaRecorrida
+ciudadDestino
+anhoQseRealizoElViaje
+dniChofer
+
+no se debe procesar El ultimo.. Corte con codViaje -1
+
+
+1: en el procesador de Viaje, sacar un minomo y maximo, de un VECTOR contador que utilizo de 1..100 de kilometros y patentes
+anteriormente inicializar los kmtrs Totales en 0 y las patentes con las patentes de los camiones
+
+(o puedo hacerlo solo de kilimtros totales, una vez sacados los maximos, saco las posiciones e informo despues directamente la patente con el vector q se dispone)
+
+2: veo la pos(codCamion).capacidad > 30.5 and anhoQseRealizoElViaje - anhoFabricacion > 5 then
+  variableContadora:= varContadora +1;
+3: mientras estoy en el procesar, filtro por ese criterio y si lo cumple informo el codigo de viaje
+}

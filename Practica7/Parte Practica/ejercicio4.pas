@@ -135,3 +135,93 @@ begin
   L:= nil;
   procesarDatos(L);
 end. 
+
+
+
+
+
+//variacion
+{Una maternidad dispone información sobre sus pacientes. De cada una se conoce: nombre, apellido y
+peso registrado el primer día de cada semana de embarazo (a lo sumo 42). La maternidad necesita un
+programa que analice esta información, determine e informe:
+a. Para cada embarazada, la semana con mayor aumento de peso.
+b. El aumento de peso total de cada embarazada durante el embarazo.
+}
+
+program a;
+
+const
+  dimFsemanas: 42;
+type
+
+  str20 = string[20];
+  vSemanas = array[1..dimFSemanas]: real;
+  
+  paciente = record
+    nombre: str20;
+    apellido: str20;
+    pesoRegistrado: vSemanas;
+    dimL: integer;
+  end;
+  
+  lista = ^nodo;
+  
+  nodo = record
+    dato: paciente;
+    sig: lista;
+  end;
+  
+
+procedure inicializarListas(var L: lista);
+begin
+  L:= nil;
+end;
+
+// procedure cargarInfoEmbarazadas(var L: lista);  //se dispone
+// begin
+// end;
+
+procedure sacarMaxPeso(pesoActual: real;semanaActual: integer; var max1: real; var semanaMax: integer);
+begin
+  if(pesoActual > max1)then
+    begin
+      semanaMax:= semanaActual;
+      max1:= pesoActual;
+    end;
+end;
+
+procedure sacarSemanaMayorPeso(semanasPeso: vSemanas; dimL: integer; var pesoTotal: real);
+var
+  i: integer;
+  max1: real;
+begin
+  max1:= -9999;
+  for i:= 1 to dimL do
+    begin
+      sacarMaxPeso(semanasPeso[i],i,max1,semanaMax);
+      pesoTotal:= pesoTotal + vSemanas[i]; 
+    end;
+  Writeln('La semana que se obtuvo mayor peso fue: ,semanaMax);
+end;
+
+procedure procesarInformacion(var L: listas);
+var
+  pesoTotal: real;
+begin
+  While( L <> nil) do
+    begin
+      pesoTotal:= 0;
+      sacarSemanaMayorPeso(L^.dato.pesoRegistrado, L^.dato.dimL, pesoTotal);
+      Writeln('El peso total de la embarazada durante el embarazo es: ',pesoTotal);
+      L:= L^.sig;
+    end;
+end;
+
+procedure procesarInformacion
+var
+  L: lista;
+begin
+  inicializarListas(L);
+  cargarInfoEmbarazadas(L);  //se dispone
+  procesarInformacion(L);
+end;

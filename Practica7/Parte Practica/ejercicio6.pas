@@ -180,3 +180,24 @@ begin
   L:= nil;
   procesarDatos(L);
 end.
+
+
+{se leen objetos 
+  codObjeto
+  catObjeto ran1..7
+  nombreObjeto
+  distanciaTierra
+  nombreDescubridor
+  anhoDescubrimiento
+
+A) leer objetos (Lista con agregarAtras para consevar el orden en que fueron leidos los datos) hasta q se ingrese un objeto con cod -1, q no se procesa
+
+B) procesarObjetos,
+  1 sacar 2 maximos, fijandome la distancia a la tierra
+  
+  2  fijarme q la catgoria = 2 and descubridor galileoGalilei and anhoDescubriemiento < 1600
+  
+  3  vectorContador
+  
+  4  Imprimir si cumple ese criterio
+}

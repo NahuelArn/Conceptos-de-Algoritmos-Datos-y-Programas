@@ -174,3 +174,117 @@ begin
   L:= nil;
   procesarDatos(L);
 end.
+
+
+
+
+//variacion
+{Una remisería dispone de información acerca de los viajes realizados durante el mes de mayo de
+2020. De cada viaje se conoce: número de viaje, código de auto, dirección de origen, dirección de
+destino y kilómetros recorridos durante el viaje. Esta información se encuentra ordenada por código
+de auto y para un mismo código de auto pueden existir 1 o más viajes.
+ 
+Se pide:
+a. Informar los dos códigos de auto que más kilómetros recorrieron.
+b. Generar una lista nueva con los viajes de más de 5 kilómetros recorridos, ordenada por número
+de viaje.}
+
+program remiseria;
+const
+
+type
+
+  viaje = record
+    numViaje: integer;
+    codAuto: integer;
+    direcOrigen: integer;
+    direcDestino: integer;
+    kmtrsRecorridos: real;
+  end;
+  
+  lista = ^nodo;
+  
+  nodo = record
+    dato: viaje;
+    sig: lista;
+  end;
+
+procedure inicializarListas(Var L: lista);
+begin
+  L:= nil;
+end;
+
+procedure sacar2Maximos(kmtRecorridosAct: real codAutoAct: integer; var max1, max2: real; var cod1,cod2: integer);
+begin
+  if(kmtRecorridosAct > max1)then
+    begin
+      max2:= max1;
+      cod2:= cod1;
+      cod1:= codAutoAct;
+      max1:= kmtRecorridosAct;
+    end
+  else
+    if(kmtRecorridosAct > max2)then
+      begin
+        max2:= kmtRecorridosAct;
+        cod2:= codAutoAct;
+      end;
+end;
+
+procedure insertarOrdenado(var L2: lista; v: viaje);
+var
+  nue: lista;
+  ant,act: lista;
+begin
+  new(nue);
+  nue^.dato:= v;
+  ant:= L;
+  act:= L;
+  While(act <> nil) and (v.codAuto > act^.dato.codAuto)do
+    begin
+      ant:= act;
+      act:= act^.sig;
+    end;
+  if(act = ant)then
+    L:= nue
+  else
+    ant^.sig:= nue;
+  nue^.sig:= act;
+end;
+
+
+procesarViajes(L: lista);
+var
+  codActual: integer;
+  max1,max2: real;
+  cod1,cod2: integer;
+  L2: lista;
+  kmTotales: real;
+begin
+  inicializarLista(L2);
+  max1:= -9999;
+  max2:= -9999;
+  While (L <> nil) do
+    begin
+      codActual:= L^.dato.codAuto;
+      kmTotales:= 0;
+      While(L<> nil) and (codActual = L^.dato.codAuto) do
+        begin
+          if(L^.dato.kmtrsRecorridos > 5 )then
+            insertarOrdenado(L2,L^.dato);
+          kmTotales:= kmTotales+ L^.dato.kmtrsRecorridos;
+          L:= L^.sig;
+        end;
+      sacar2Maximos(kmTotales,codActual, max1,max2, cod1,cod2);
+    end;
+  Writeln('Los 2 codigos de auto que mas kilometros recorrieron fueron', cod1, ' y ' cod2);
+end;
+
+ 
+var
+  L: lista;
+begin
+  inicializarLista(L);
+  cargarViajes(L);  //SE DISPONE
+  procesarViajes(L);
+end.

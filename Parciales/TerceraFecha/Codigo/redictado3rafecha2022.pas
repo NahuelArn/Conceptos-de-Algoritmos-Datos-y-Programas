@@ -204,10 +204,11 @@ begin
         {nuevaEstruc.cantPrestamos:= cantPrestamosJunio;
         nuevaEstruc.dni:= dniActual;
         agregarAtras(L2,Ult, nuevaEstruc);}
-        Writeln('El dni del socio que menos prestamos realizo en el 2022 es: ',dniMin);
-        Writeln('El dni del socio que mas prestamos realizo en el 2022 es: ',dniMax);
+        
         // imprimirTodosLosDigitosDeSuId(vC);
     end;
+    Writeln('El dni del socio que menos prestamos realizo en el 2022 es: ',dniMin);
+    Writeln('El dni del socio que mas prestamos realizo en el 2022 es: ',dniMax);
 end;
 
 {procedure recorremosNuevaEstructura(L2: lista2);
