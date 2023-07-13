@@ -217,11 +217,10 @@ begin
     end;
 end;
 
-procedure procesarInformacion
 var
   L: lista;
 begin
   inicializarListas(L);
   cargarInfoEmbarazadas(L);  //se dispone
   procesarInformacion(L);
-end;
+end.
