@@ -23,6 +23,7 @@ end;
 <h1>Insertar En Vectores </h1>
 
 ```pas
+
 procedure insertarPosVector(var v: vector; var dimL: integer; pos,valorNuevo: integer; var ok: boolean);
 var
   i: integer;
@@ -40,6 +41,7 @@ end;
 ```
 
 <h1>Ordenar Vector por Seleccion </h1>
+
 ```pas
 
 procedure ordenarVectorSeleccion(var v: vector; dimL: integer);
@@ -76,6 +78,7 @@ Pero si te pide que durante la carga se debe ir ordenando y una vez finalizada l
 </p>
   
 ```pas 
+
 function buscarPosicion(v: vEmpleado; dimL: integer; cod: integer): integer;
 var
   pos: integer;
@@ -120,6 +123,7 @@ begin
       insertarOrdenado(v,dimL,e);
     end;
 end;
+
 ```
 
 
