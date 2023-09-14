@@ -2,11 +2,73 @@
 <p>A lo sumo: no excede X limite, pero puede ser menor o igual q el. Para ser true<p>
 <p align="center">Algoritmos que se repiten</p>
 
+<h1>Eliminar posicion en vectores </h1>
 
+```pas
+
+procedure eliminarPosVector(var v: vector; var dimL: integer; pos: integer; var ok: boolean); //ok es para saber si se pudo eliminar
+var
+  i: integer;
+begin
+  ok:= (pos > 0) and (pos <= dimL);
+  if(ok)then
+    begin
+      for i:= pos to dimL-1 do
+        v[i]:= v[i+1];
+      dimL:= dimL-1;
+    end;
+end;
+
+```
+<h1>Insertar En Vectores </h1>
+
+```pas
+procedure insertarPosVector(var v: vector; var dimL: integer; pos,valorNuevo: integer; var ok: boolean);
+var
+  i: integer;
+begin
+  ok:= (pos > 0) and (pos <= dimL) and (dimL+1 <= dimF);
+  if(ok)then
+    begin
+      for i:= dimL downto pos do
+        v[i+1]:= v[i];
+      v[pos]:= valorNuevo;
+      dimL:= dimL+1;
+    end;
+end;
+
+```
+
+<h1>Ordenar Vector por Seleccion </h1>
+```pas
+
+procedure ordenarVectorSeleccion(var v: vector; dimL: integer);
+var
+  a,b,i, posMin: integer;
+begin
+  for i:= 1 to dimL-1 do
+    begin
+      a:= i;
+      for b:= i+1 to dimL do
+        begin
+          if(v[b] < v[a])then
+            begin
+              a:= b;
+            end;
+          min:= v[a];
+          v[a]:= v[i];
+          v[i]:= min;
+        end;
+    end;
+end;
+
+```
+<h1>leer la informacion y que quede ordenada </h1>
 <p align="center"> leer la informacion y que quede ordenada 
 "La información se debe encontrar ordenada por código de país." "La información debe almacenarse ordenada por código de
 computadora de manera ascendente."
- </p>
+ </p> <br>
+
 <p>Si no especifica el enunciado, que si o si que en la carga se debe ir ordenando, se puede leer Toda la informacion en un vector como venga y despues
 clavar el algoritmo de ordenar un vector, que hace varios recorridos y deja el vector ordenado.
 
